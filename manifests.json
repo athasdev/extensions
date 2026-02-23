@@ -1,0 +1,1180 @@
+{
+  "bash": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.bash",
+    "name": "Bash",
+    "displayName": "Bash",
+    "version": "1.0.0",
+    "description": "Bash/Shell script support with syntax highlighting and LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "bash",
+        "extensions": [
+          ".sh",
+          ".bash",
+          ".zsh"
+        ],
+        "aliases": [
+          "Bash",
+          "Shell",
+          "sh"
+        ],
+        "filenames": [
+          ".bashrc",
+          ".zshrc",
+          ".bash_profile",
+          ".profile"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "bash-language-server",
+        "runtime": "bun",
+        "package": "bash-language-server",
+        "args": [
+          "start"
+        ]
+      }
+    }
+  },
+  "c": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.c",
+    "name": "C",
+    "displayName": "C",
+    "version": "1.0.0",
+    "description": "C language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "c",
+        "extensions": [
+          ".c",
+          ".h"
+        ],
+        "aliases": [
+          "C"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "c_sharp": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.csharp",
+    "name": "CSharp",
+    "displayName": "C#",
+    "version": "1.0.0",
+    "description": "C# language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "csharp",
+        "extensions": [
+          ".cs"
+        ],
+        "aliases": [
+          "C#",
+          "CSharp",
+          "csharp"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "cpp": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.cpp",
+    "name": "C++",
+    "displayName": "C++",
+    "version": "1.0.0",
+    "description": "C++ language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "cpp",
+        "extensions": [
+          ".cpp",
+          ".cc",
+          ".cxx",
+          ".hpp",
+          ".hh",
+          ".hxx"
+        ],
+        "aliases": [
+          "C++",
+          "cpp"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "css": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.css",
+    "name": "CSS",
+    "displayName": "CSS",
+    "version": "1.0.0",
+    "description": "CSS language support with syntax highlighting, LSP, and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "css",
+        "extensions": [
+          ".css"
+        ],
+        "aliases": [
+          "CSS"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "vscode-css-language-server",
+        "runtime": "bun",
+        "package": "vscode-langservers-extracted",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      }
+    }
+  },
+  "dart": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.dart",
+    "name": "Dart",
+    "displayName": "Dart",
+    "version": "1.0.0",
+    "description": "Dart language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "dart",
+        "extensions": [
+          ".dart"
+        ],
+        "aliases": [
+          "Dart"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "elisp": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.elisp",
+    "name": "EmacsLisp",
+    "displayName": "Emacs Lisp",
+    "version": "1.0.0",
+    "description": "Emacs Lisp language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "elisp",
+        "extensions": [
+          ".el",
+          ".emacs"
+        ],
+        "aliases": [
+          "Emacs Lisp",
+          "elisp"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "elixir": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.elixir",
+    "name": "Elixir",
+    "displayName": "Elixir",
+    "version": "1.0.0",
+    "description": "Elixir language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "elixir",
+        "extensions": [
+          ".ex",
+          ".exs"
+        ],
+        "aliases": [
+          "Elixir"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "elm": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.elm",
+    "name": "Elm",
+    "displayName": "Elm",
+    "version": "1.0.0",
+    "description": "Elm language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "elm",
+        "extensions": [
+          ".elm"
+        ],
+        "aliases": [
+          "Elm"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "go": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.go",
+    "name": "Go",
+    "displayName": "Go",
+    "version": "1.0.0",
+    "description": "Go language support with syntax highlighting, LSP, and tooling",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "go",
+        "extensions": [
+          ".go"
+        ],
+        "aliases": [
+          "Go",
+          "golang"
+        ],
+        "filenames": [
+          "go.mod",
+          "go.sum",
+          "go.work"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "gopls",
+        "runtime": "go",
+        "package": "golang.org/x/tools/gopls",
+        "args": [
+          "serve"
+        ]
+      },
+      "linter": {
+        "name": "golangci-lint",
+        "runtime": "go",
+        "package": "github.com/golangci/golangci-lint/cmd/golangci-lint",
+        "args": [
+          "run",
+          "--out-format",
+          "json"
+        ]
+      }
+    }
+  },
+  "html": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.html",
+    "name": "HTML",
+    "displayName": "HTML",
+    "version": "1.0.0",
+    "description": "HTML language support with syntax highlighting, LSP, and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "html",
+        "extensions": [
+          ".html",
+          ".htm",
+          ".xhtml"
+        ],
+        "aliases": [
+          "HTML"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "vscode-html-language-server",
+        "runtime": "bun",
+        "package": "vscode-langservers-extracted",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      }
+    }
+  },
+  "java": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.java",
+    "name": "Java",
+    "displayName": "Java",
+    "version": "1.0.0",
+    "description": "Java language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "java",
+        "extensions": [
+          ".java"
+        ],
+        "aliases": [
+          "Java"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "javascript": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.javascript",
+    "name": "JavaScript",
+    "displayName": "JavaScript",
+    "version": "1.0.0",
+    "description": "JavaScript language support with syntax highlighting, LSP, and tooling",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "javascript",
+        "extensions": [
+          ".js",
+          ".mjs",
+          ".cjs"
+        ],
+        "aliases": [
+          "JavaScript",
+          "js"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "typescript-language-server",
+        "runtime": "bun",
+        "package": "typescript-language-server",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      },
+      "linter": {
+        "name": "eslint",
+        "runtime": "bun",
+        "package": "eslint",
+        "args": [
+          "--stdin",
+          "--stdin-filename",
+          "${file}",
+          "--format",
+          "json"
+        ]
+      }
+    }
+  },
+  "json": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.json",
+    "name": "JSON",
+    "displayName": "JSON",
+    "version": "1.0.0",
+    "description": "JSON language support with syntax highlighting, LSP, and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "json",
+        "extensions": [
+          ".json",
+          ".jsonc"
+        ],
+        "aliases": [
+          "JSON"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "vscode-json-language-server",
+        "runtime": "bun",
+        "package": "vscode-langservers-extracted",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      }
+    }
+  },
+  "kotlin": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.kotlin",
+    "name": "Kotlin",
+    "displayName": "Kotlin",
+    "version": "1.0.0",
+    "description": "Kotlin language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "kotlin",
+        "extensions": [
+          ".kt",
+          ".kts"
+        ],
+        "aliases": [
+          "Kotlin"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "lua": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.lua",
+    "name": "Lua",
+    "displayName": "Lua",
+    "version": "1.0.0",
+    "description": "Lua language support with syntax highlighting and LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "lua",
+        "extensions": [
+          ".lua"
+        ],
+        "aliases": [
+          "Lua"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "lua-language-server",
+        "runtime": "binary",
+        "downloadUrl": "https://github.com/LuaLS/lua-language-server/releases/latest/download/lua-language-server-${version}-${os}-${arch}.tar.gz"
+      }
+    }
+  },
+  "ocaml": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.ocaml",
+    "name": "OCaml",
+    "displayName": "OCaml",
+    "version": "1.0.0",
+    "description": "OCaml language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "ocaml",
+        "extensions": [
+          ".ml",
+          ".mli"
+        ],
+        "aliases": [
+          "OCaml"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "php": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.php",
+    "name": "PHP",
+    "displayName": "PHP",
+    "version": "1.0.0",
+    "description": "PHP language support with syntax highlighting and LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "php",
+        "extensions": [
+          ".php",
+          ".phtml",
+          ".php3",
+          ".php4",
+          ".php5"
+        ],
+        "aliases": [
+          "PHP"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "intelephense",
+        "runtime": "bun",
+        "package": "intelephense",
+        "args": [
+          "--stdio"
+        ]
+      }
+    }
+  },
+  "python": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.python",
+    "name": "Python",
+    "displayName": "Python",
+    "version": "1.0.0",
+    "description": "Python language support with syntax highlighting, LSP, and tooling",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "python",
+        "extensions": [
+          ".py",
+          ".pyw",
+          ".pyi"
+        ],
+        "aliases": [
+          "Python",
+          "python3"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "pyright",
+        "runtime": "bun",
+        "package": "pyright",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "black",
+        "runtime": "python",
+        "package": "black",
+        "args": [
+          "--stdin-filename",
+          "${file}",
+          "-"
+        ]
+      },
+      "linter": {
+        "name": "ruff",
+        "runtime": "python",
+        "package": "ruff",
+        "args": [
+          "check",
+          "--stdin-filename",
+          "${file}",
+          "--output-format",
+          "json",
+          "-"
+        ]
+      }
+    }
+  },
+  "ruby": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.ruby",
+    "name": "Ruby",
+    "displayName": "Ruby",
+    "version": "1.0.0",
+    "description": "Ruby language support with syntax highlighting (Ruby, ERB, and common Rails templates)",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "ruby",
+        "extensions": [
+          ".rb",
+          ".rbw",
+          ".erb",
+          ".rake",
+          ".gemspec",
+          ".ru",
+          ".builder",
+          ".jbuilder",
+          ".rxml",
+          ".rjs",
+          ".rabl",
+          ".thor",
+          ".podspec",
+          ".arb"
+        ],
+        "aliases": [
+          "Ruby",
+          "rb",
+          "erb"
+        ],
+        "filenames": [
+          "Rakefile",
+          "Gemfile",
+          "Gemfile.lock",
+          "Guardfile",
+          "Capfile",
+          "Appraisals",
+          "Berksfile",
+          "Brewfile",
+          "Cheffile",
+          "Dangerfile",
+          "Fastfile",
+          "Podfile",
+          "Rantfile",
+          "Thorfile",
+          "Vagrantfile",
+          "Puppetfile"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "embeddedGrammars": [
+        {
+          "id": "embedded-template",
+          "wasmPath": "embedded-template.wasm"
+        }
+      ]
+    }
+  },
+  "rust": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.rust",
+    "name": "Rust",
+    "displayName": "Rust",
+    "version": "1.0.0",
+    "description": "Rust language support with syntax highlighting and LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "rust",
+        "extensions": [
+          ".rs"
+        ],
+        "aliases": [
+          "Rust",
+          "rs"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "rust-analyzer",
+        "runtime": "binary",
+        "downloadUrl": "https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-${arch}-${os}.gz"
+      }
+    }
+  },
+  "scala": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.scala",
+    "name": "Scala",
+    "displayName": "Scala",
+    "version": "1.0.0",
+    "description": "Scala language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "scala",
+        "extensions": [
+          ".scala",
+          ".sc"
+        ],
+        "aliases": [
+          "Scala"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "swift": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.swift",
+    "name": "Swift",
+    "displayName": "Swift",
+    "version": "1.0.0",
+    "description": "Swift language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "swift",
+        "extensions": [
+          ".swift"
+        ],
+        "aliases": [
+          "Swift"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "toml": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.toml",
+    "name": "TOML",
+    "displayName": "TOML",
+    "version": "1.0.0",
+    "description": "TOML language support with syntax highlighting, LSP, and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "toml",
+        "extensions": [
+          ".toml"
+        ],
+        "aliases": [
+          "TOML"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "taplo",
+        "runtime": "rust",
+        "package": "taplo-cli",
+        "args": [
+          "lsp",
+          "stdio"
+        ]
+      },
+      "formatter": {
+        "name": "taplo",
+        "runtime": "rust",
+        "package": "taplo-cli",
+        "args": [
+          "format",
+          "-"
+        ]
+      }
+    }
+  },
+  "tsx": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.tsx",
+    "name": "TSX",
+    "displayName": "TypeScript JSX",
+    "version": "1.0.0",
+    "description": "TypeScript JSX/React support with syntax highlighting, LSP, and tooling",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "typescriptreact",
+        "extensions": [
+          ".tsx"
+        ],
+        "aliases": [
+          "TSX",
+          "TypeScript React"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "typescript-language-server",
+        "runtime": "bun",
+        "package": "typescript-language-server",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      },
+      "linter": {
+        "name": "eslint",
+        "runtime": "bun",
+        "package": "eslint",
+        "args": [
+          "--stdin",
+          "--stdin-filename",
+          "${file}",
+          "--format",
+          "json"
+        ]
+      }
+    }
+  },
+  "typescript": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.typescript",
+    "name": "TypeScript",
+    "displayName": "TypeScript",
+    "version": "1.0.0",
+    "description": "TypeScript language support with syntax highlighting, LSP, and tooling",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "typescript",
+        "extensions": [
+          ".ts",
+          ".mts",
+          ".cts"
+        ],
+        "aliases": [
+          "TypeScript",
+          "ts"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "typescript-language-server",
+        "runtime": "bun",
+        "package": "typescript-language-server",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      },
+      "linter": {
+        "name": "eslint",
+        "runtime": "bun",
+        "package": "eslint",
+        "args": [
+          "--stdin",
+          "--stdin-filename",
+          "${file}",
+          "--format",
+          "json"
+        ]
+      }
+    }
+  },
+  "vue": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.vue",
+    "name": "Vue",
+    "displayName": "Vue",
+    "version": "1.0.0",
+    "description": "Vue language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "vue",
+        "extensions": [
+          ".vue"
+        ],
+        "aliases": [
+          "Vue"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  },
+  "yaml": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.yaml",
+    "name": "YAML",
+    "displayName": "YAML",
+    "version": "1.0.0",
+    "description": "YAML language support with syntax highlighting, LSP, and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "yaml",
+        "extensions": [
+          ".yaml",
+          ".yml"
+        ],
+        "aliases": [
+          "YAML"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      },
+      "lsp": {
+        "name": "yaml-language-server",
+        "runtime": "bun",
+        "package": "yaml-language-server",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--stdin-filepath",
+          "${file}"
+        ]
+      }
+    }
+  },
+  "zig": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.zig",
+    "name": "Zig",
+    "displayName": "Zig",
+    "version": "1.0.0",
+    "description": "Zig language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "zig",
+        "extensions": [
+          ".zig"
+        ],
+        "aliases": [
+          "Zig"
+        ]
+      }
+    ],
+    "capabilities": {
+      "grammar": {
+        "wasmPath": "parser.wasm",
+        "highlightQuery": "highlights.scm"
+      }
+    }
+  }
+}

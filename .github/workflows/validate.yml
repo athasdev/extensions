@@ -1,0 +1,28 @@
+name: Validate Extensions
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Validate extension manifests
+        run: bun run scripts/validate.ts
+
+      - name: Check manifests.json is up to date
+        run: |
+          bun run scripts/generate-manifests.ts
+          git diff --exit-code manifests.json || (echo "manifests.json is out of date. Run: bun run scripts/generate-manifests.ts" && exit 1)
+
+      - name: Check registry.json and index.json are up to date
+        run: bun run scripts/build-extensions-index.ts --check

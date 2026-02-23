@@ -1,0 +1,35 @@
+name: Deploy Extensions CDN
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: github.repository == 'athasdev/extensions'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          envs: EXTENSIONS_CDN_ROOT
+          script: |
+            set -e
+            git config --global --add safe.directory /srv/extensions
+            cd /srv/extensions
+            git stash push --include-untracked --message "auto-deploy-$(date +%s)" || true
+            git pull --ff-only
+            /root/.bun/bin/bun scripts/build-extensions-index.ts
+            /root/.bun/bin/bun scripts/generate-manifests.ts
+            if [ -n "${EXTENSIONS_CDN_ROOT:-}" ]; then
+              /root/.bun/bin/bun scripts/deploy-extensions-cdn.ts
+            else
+              echo "EXTENSIONS_CDN_ROOT not set, skipping extensions CDN sync."
+            fi
+        env:
+          EXTENSIONS_CDN_ROOT: ${{ secrets.EXTENSIONS_CDN_ROOT }}

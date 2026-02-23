@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Build artifacts
+dist/
+*.tgz
+
+# WASM binaries (stored on CDN, not in git)
+*.wasm
+
+# Editor files
+.idea/
+.vscode/
+*.sublime*
+
+# Logs
+*.log
