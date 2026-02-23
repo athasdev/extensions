@@ -85,7 +85,7 @@ async function validateExtension(folder: string): Promise<void> {
     if (grammar.wasmPath) {
       const wasmPath = join(extensionDir, grammar.wasmPath);
       if (!(await fileExists(wasmPath))) {
-        error(folder, `Grammar wasmPath file not found: ${grammar.wasmPath}`);
+        warn(folder, `Grammar wasmPath not in repo (expected on CDN): ${grammar.wasmPath}`);
       }
     }
     if (grammar.highlightQuery) {
