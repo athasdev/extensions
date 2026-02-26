@@ -23,7 +23,7 @@ await $`rsync -az --include='*/' --include='*.json' --include='*.scm' --include=
 
 // Sync root-level registry files
 for (const file of ["registry.json", "index.json", "manifests.json"]) {
-  await $`cp ${join(root, file)} ${targetDir}/../${file}`;
+  await $`cp ${join(root, file)} ${targetDir}/${file}`;
 }
 
 console.log("Extensions CDN sync complete.");

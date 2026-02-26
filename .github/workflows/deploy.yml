@@ -20,10 +20,13 @@ jobs:
           envs: EXTENSIONS_CDN_ROOT
           script: |
             set -e
+            if [ ! -d /srv/extensions/.git ]; then
+              git clone --depth 1 https://github.com/athasdev/extensions.git /srv/extensions
+            fi
             git config --global --add safe.directory /srv/extensions
             cd /srv/extensions
             git stash push --include-untracked --message "auto-deploy-$(date +%s)" || true
-            git pull --ff-only
+            git pull --ff-only origin master
             /root/.bun/bin/bun scripts/build-extensions-index.ts
             /root/.bun/bin/bun scripts/generate-manifests.ts
             if [ -n "${EXTENSIONS_CDN_ROOT:-}" ]; then
