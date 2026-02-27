@@ -4,20 +4,31 @@
   "name": "Java",
   "displayName": "Java",
   "version": "1.0.0",
-  "description": "Java language support with syntax highlighting",
+  "description": "Java language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "java",
-      "extensions": [".java"],
-      "aliases": ["Java"]
+      "extensions": [
+        ".java"
+      ],
+      "aliases": [
+        "Java"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "jdtls",
+      "runtime": "binary",
+      "args": []
     }
   }
 }

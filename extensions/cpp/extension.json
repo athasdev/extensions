@@ -4,20 +4,39 @@
   "name": "C++",
   "displayName": "C++",
   "version": "1.0.0",
-  "description": "C++ language support with syntax highlighting",
+  "description": "C++ language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "cpp",
-      "extensions": [".cpp", ".cc", ".cxx", ".hpp", ".hh", ".hxx"],
-      "aliases": ["C++", "cpp"]
+      "extensions": [
+        ".cpp",
+        ".cc",
+        ".cxx",
+        ".hpp",
+        ".hh",
+        ".hxx"
+      ],
+      "aliases": [
+        "C++",
+        "cpp"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "clangd",
+      "runtime": "binary",
+      "args": [
+        "--background-index"
+      ]
     }
   }
 }

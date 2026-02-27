@@ -10,7 +10,7 @@
   "languages": [
     {
       "id": "javascript",
-      "extensions": [".js", ".mjs", ".cjs"],
+      "extensions": [".js", ".mjs", ".cjs", ".jsx"],
       "aliases": ["JavaScript", "js"]
     }
   ],

@@ -16,10 +16,6 @@ extensions/
     highlights.scm
     tooling.json        # Platform-specific tooling (pre-built LSP, formatter, linter binaries)
     build.sh            # Build script for tooling archives
-  web-core/
-    tooling.json        # Shared LSP servers for HTML/CSS/JSON/YAML
-    build.sh
-    BUILD.md
   ...
 registry.json           # Extension registry
 index.json              # Extension index (for marketplace)

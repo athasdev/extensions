@@ -10,8 +10,8 @@
   "languages": [
     {
       "id": "php",
-      "extensions": [".php", ".phtml", ".php3", ".php4", ".php5"],
-      "aliases": ["PHP"]
+      "extensions": [".php", ".phtml", ".php3", ".php4", ".php5", ".php7", ".php8", ".phar", ".phps"],
+      "aliases": ["PHP", "php"]
     }
   ],
   "capabilities": {

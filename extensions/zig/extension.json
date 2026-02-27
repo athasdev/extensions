@@ -4,20 +4,32 @@
   "name": "Zig",
   "displayName": "Zig",
   "version": "1.0.0",
-  "description": "Zig language support with syntax highlighting",
+  "description": "Zig language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "zig",
-      "extensions": [".zig"],
-      "aliases": ["Zig"]
+      "extensions": [
+        ".zig",
+        ".zon"
+      ],
+      "aliases": [
+        "Zig"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "zls",
+      "runtime": "binary",
+      "args": []
     }
   }
 }

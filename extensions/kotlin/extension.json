@@ -4,20 +4,32 @@
   "name": "Kotlin",
   "displayName": "Kotlin",
   "version": "1.0.0",
-  "description": "Kotlin language support with syntax highlighting",
+  "description": "Kotlin language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "kotlin",
-      "extensions": [".kt", ".kts"],
-      "aliases": ["Kotlin"]
+      "extensions": [
+        ".kt",
+        ".kts"
+      ],
+      "aliases": [
+        "Kotlin"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "kotlin-language-server",
+      "runtime": "binary",
+      "args": []
     }
   }
 }

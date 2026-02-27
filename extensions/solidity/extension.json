@@ -1,23 +1,22 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
-  "id": "athas.elixir",
-  "name": "Elixir",
-  "displayName": "Elixir",
+  "id": "athas.solidity",
+  "name": "Solidity",
+  "displayName": "Solidity",
   "version": "1.0.0",
-  "description": "Elixir language support with syntax highlighting and LSP",
+  "description": "Solidity language support with syntax highlighting and LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
   ],
   "languages": [
     {
-      "id": "elixir",
+      "id": "solidity",
       "extensions": [
-        ".ex",
-        ".exs"
+        ".sol"
       ],
       "aliases": [
-        "Elixir"
+        "Solidity"
       ]
     }
   ],
@@ -27,9 +26,11 @@
       "highlightQuery": "highlights.scm"
     },
     "lsp": {
-      "name": "elixir-ls",
+      "name": "solidity-language-server",
       "runtime": "binary",
-      "args": []
+      "args": [
+        "--stdio"
+      ]
     }
   }
 }

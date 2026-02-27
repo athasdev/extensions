@@ -4,20 +4,33 @@
   "name": "Elm",
   "displayName": "Elm",
   "version": "1.0.0",
-  "description": "Elm language support with syntax highlighting",
+  "description": "Elm language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "elm",
-      "extensions": [".elm"],
-      "aliases": ["Elm"]
+      "extensions": [
+        ".elm"
+      ],
+      "aliases": [
+        "Elm"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "elm-language-server",
+      "runtime": "binary",
+      "args": [
+        "--stdio"
+      ]
     }
   }
 }

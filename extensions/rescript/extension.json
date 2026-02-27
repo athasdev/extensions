@@ -1,23 +1,24 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
-  "id": "athas.elixir",
-  "name": "Elixir",
-  "displayName": "Elixir",
+  "id": "athas.rescript",
+  "name": "ReScript",
+  "displayName": "ReScript",
   "version": "1.0.0",
-  "description": "Elixir language support with syntax highlighting and LSP",
+  "description": "ReScript language support with syntax highlighting and LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
   ],
   "languages": [
     {
-      "id": "elixir",
+      "id": "rescript",
       "extensions": [
-        ".ex",
-        ".exs"
+        ".res",
+        ".resi"
       ],
       "aliases": [
-        "Elixir"
+        "ReScript",
+        "rescript"
       ]
     }
   ],
@@ -27,9 +28,11 @@
       "highlightQuery": "highlights.scm"
     },
     "lsp": {
-      "name": "elixir-ls",
+      "name": "rescript-language-server",
       "runtime": "binary",
-      "args": []
+      "args": [
+        "--stdio"
+      ]
     }
   }
 }

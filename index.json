@@ -14,7 +14,7 @@
   {
     "id": "athas.c",
     "name": "C Language Support",
-    "description": "C language support with syntax highlighting",
+    "description": "C language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -26,7 +26,7 @@
   {
     "id": "athas.csharp",
     "name": "C# Language Support",
-    "description": "C# language support with syntax highlighting",
+    "description": "C# language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -38,7 +38,7 @@
   {
     "id": "athas.cpp",
     "name": "C++ Language Support",
-    "description": "C++ language support with syntax highlighting",
+    "description": "C++ language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -62,7 +62,7 @@
   {
     "id": "athas.dart",
     "name": "Dart Language Support",
-    "description": "Dart language support with syntax highlighting",
+    "description": "Dart language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -86,7 +86,7 @@
   {
     "id": "athas.elixir",
     "name": "Elixir Language Support",
-    "description": "Elixir language support with syntax highlighting",
+    "description": "Elixir language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -98,7 +98,7 @@
   {
     "id": "athas.elm",
     "name": "Elm Language Support",
-    "description": "Elm language support with syntax highlighting",
+    "description": "Elm language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -134,7 +134,7 @@
   {
     "id": "athas.java",
     "name": "Java Language Support",
-    "description": "Java language support with syntax highlighting",
+    "description": "Java language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -170,7 +170,7 @@
   {
     "id": "athas.kotlin",
     "name": "Kotlin Language Support",
-    "description": "Kotlin language support with syntax highlighting",
+    "description": "Kotlin language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -192,9 +192,33 @@
     "rating": 0
   },
   {
+    "id": "athas.markdown",
+    "name": "Markdown Language Support",
+    "description": "Markdown language support with syntax highlighting, LSP, and formatting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/markdown/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/markdown/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.objc",
+    "name": "Objective-C Language Support",
+    "description": "Objective-C language support with syntax highlighting and LSP",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/objc/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/objc/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.ocaml",
     "name": "OCaml Language Support",
-    "description": "OCaml language support with syntax highlighting",
+    "description": "OCaml language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -228,6 +252,30 @@
     "rating": 0
   },
   {
+    "id": "athas.ql",
+    "name": "QL Language Support",
+    "description": "QL language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/ql/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/ql/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.rescript",
+    "name": "ReScript Language Support",
+    "description": "ReScript language support with syntax highlighting and LSP",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/rescript/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/rescript/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.ruby",
     "name": "Ruby Language Support",
     "description": "Ruby language support with syntax highlighting (Ruby, ERB, and common Rails templates)",
@@ -254,7 +302,7 @@
   {
     "id": "athas.scala",
     "name": "Scala Language Support",
-    "description": "Scala language support with syntax highlighting",
+    "description": "Scala language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -264,14 +312,50 @@
     "rating": 0
   },
   {
+    "id": "athas.solidity",
+    "name": "Solidity Language Support",
+    "description": "Solidity language support with syntax highlighting and LSP",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/solidity/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/solidity/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.swift",
     "name": "Swift Language Support",
-    "description": "Swift language support with syntax highlighting",
+    "description": "Swift language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
     "icon": "https://athas.dev/extensions/swift/icon.svg",
     "manifestUrl": "https://athas.dev/extensions/swift/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.systemrdl",
+    "name": "SystemRDL Language Support",
+    "description": "SystemRDL language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/systemrdl/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/systemrdl/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.tlaplus",
+    "name": "TLA+ Language Support",
+    "description": "TLA+ language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/tlaplus/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/tlaplus/extension.json",
     "downloads": 0,
     "rating": 0
   },
@@ -314,7 +398,7 @@
   {
     "id": "athas.vue",
     "name": "Vue Language Support",
-    "description": "Vue language support with syntax highlighting",
+    "description": "Vue language support with syntax highlighting, LSP, formatting, and linting",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -338,7 +422,7 @@
   {
     "id": "athas.zig",
     "name": "Zig Language Support",
-    "description": "Zig language support with syntax highlighting",
+    "description": "Zig language support with syntax highlighting and LSP",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",

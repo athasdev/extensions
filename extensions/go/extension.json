@@ -31,6 +31,12 @@
       "runtime": "go",
       "package": "github.com/golangci/golangci-lint/cmd/golangci-lint",
       "args": ["run", "--out-format", "json"]
+    },
+    "formatter": {
+      "name": "gofumpt",
+      "runtime": "go",
+      "package": "mvdan.cc/gofumpt",
+      "args": []
     }
   }
 }

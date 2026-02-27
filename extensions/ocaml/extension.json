@@ -4,20 +4,32 @@
   "name": "OCaml",
   "displayName": "OCaml",
   "version": "1.0.0",
-  "description": "OCaml language support with syntax highlighting",
+  "description": "OCaml language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "ocaml",
-      "extensions": [".ml", ".mli"],
-      "aliases": ["OCaml"]
+      "extensions": [
+        ".ml",
+        ".mli"
+      ],
+      "aliases": [
+        "OCaml"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "ocamllsp",
+      "runtime": "binary",
+      "args": []
     }
   }
 }

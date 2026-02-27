@@ -4,20 +4,31 @@
   "name": "Swift",
   "displayName": "Swift",
   "version": "1.0.0",
-  "description": "Swift language support with syntax highlighting",
+  "description": "Swift language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "swift",
-      "extensions": [".swift"],
-      "aliases": ["Swift"]
+      "extensions": [
+        ".swift"
+      ],
+      "aliases": [
+        "Swift"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "sourcekit-lsp",
+      "runtime": "binary",
+      "args": []
     }
   }
 }

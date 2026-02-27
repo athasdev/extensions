@@ -4,20 +4,34 @@
   "name": "Dart",
   "displayName": "Dart",
   "version": "1.0.0",
-  "description": "Dart language support with syntax highlighting",
+  "description": "Dart language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "dart",
-      "extensions": [".dart"],
-      "aliases": ["Dart"]
+      "extensions": [
+        ".dart"
+      ],
+      "aliases": [
+        "Dart"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "dart",
+      "runtime": "binary",
+      "args": [
+        "language-server",
+        "--protocol=lsp"
+      ]
     }
   }
 }

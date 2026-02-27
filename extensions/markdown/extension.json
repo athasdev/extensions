@@ -1,17 +1,17 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
-  "id": "athas.css",
-  "name": "CSS",
-  "displayName": "CSS",
+  "id": "athas.markdown",
+  "name": "Markdown",
+  "displayName": "Markdown",
   "version": "1.0.0",
-  "description": "CSS language support with syntax highlighting, LSP, and formatting",
+  "description": "Markdown language support with syntax highlighting, LSP, and formatting",
   "publisher": "Athas",
   "categories": ["Language"],
   "languages": [
     {
-      "id": "css",
-      "extensions": [".css", ".scss", ".sass", ".less"],
-      "aliases": ["CSS"]
+      "id": "markdown",
+      "extensions": [".md", ".markdown", ".mdx"],
+      "aliases": ["Markdown", "md"]
     }
   ],
   "capabilities": {
@@ -20,10 +20,10 @@
       "highlightQuery": "highlights.scm"
     },
     "lsp": {
-      "name": "vscode-css-language-server",
-      "runtime": "bun",
-      "package": "vscode-langservers-extracted",
-      "args": ["--stdio"]
+      "name": "marksman",
+      "runtime": "binary",
+      "downloadUrl": "https://athas.dev/extensions/markdown/markdown-${os}-${arch}.tar.gz",
+      "args": ["server"]
     },
     "formatter": {
       "name": "prettier",

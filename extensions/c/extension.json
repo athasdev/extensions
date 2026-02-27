@@ -4,20 +4,34 @@
   "name": "C",
   "displayName": "C",
   "version": "1.0.0",
-  "description": "C language support with syntax highlighting",
+  "description": "C language support with syntax highlighting and LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "c",
-      "extensions": [".c", ".h"],
-      "aliases": ["C"]
+      "extensions": [
+        ".c",
+        ".h"
+      ],
+      "aliases": [
+        "C"
+      ]
     }
   ],
   "capabilities": {
     "grammar": {
       "wasmPath": "parser.wasm",
       "highlightQuery": "highlights.scm"
+    },
+    "lsp": {
+      "name": "clangd",
+      "runtime": "binary",
+      "args": [
+        "--background-index"
+      ]
     }
   }
 }

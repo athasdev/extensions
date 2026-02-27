@@ -1,23 +1,26 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
-  "id": "athas.elixir",
-  "name": "Elixir",
-  "displayName": "Elixir",
+  "id": "athas.objc",
+  "name": "ObjectiveC",
+  "displayName": "Objective-C",
   "version": "1.0.0",
-  "description": "Elixir language support with syntax highlighting and LSP",
+  "description": "Objective-C language support with syntax highlighting and LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
   ],
   "languages": [
     {
-      "id": "elixir",
+      "id": "objc",
       "extensions": [
-        ".ex",
-        ".exs"
+        ".m",
+        ".mm",
+        ".h"
       ],
       "aliases": [
-        "Elixir"
+        "Objective-C",
+        "ObjC",
+        "objc"
       ]
     }
   ],
@@ -27,9 +30,11 @@
       "highlightQuery": "highlights.scm"
     },
     "lsp": {
-      "name": "elixir-ls",
+      "name": "clangd",
       "runtime": "binary",
-      "args": []
+      "args": [
+        "--background-index"
+      ]
     }
   }
 }

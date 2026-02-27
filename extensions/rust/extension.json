@@ -22,7 +22,7 @@
     "lsp": {
       "name": "rust-analyzer",
       "runtime": "binary",
-      "downloadUrl": "https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-${arch}-${os}.gz"
+      "downloadUrl": "https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-${targetArch}-${targetOs}.${archiveExt}"
     }
   }
 }
