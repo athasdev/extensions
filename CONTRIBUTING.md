@@ -26,6 +26,7 @@ scripts/                # Validation and generation scripts
 - `extension.json` defines the extension manifest (category, capabilities, tool references)
 - `tooling.json` (optional) defines pre-built platform-specific binaries distributed as tarballs
 - Not every extension has a `tooling.json`. Extensions without one rely on runtime-installed tools
+- `query-sources.json` pins upstream Tree-sitter highlight query sources for opt-in languages
 
 ## Adding a New Extension
 
@@ -72,6 +73,30 @@ scripts/                # Validation and generation scripts
    ```bash
    bun run scripts/validate.ts
    ```
+
+## Upstream Tree-sitter Queries
+
+For language extensions, prefer pinned upstream queries instead of hand-editing
+`highlights.scm` directly.
+
+1. Add an entry in `query-sources.json` with:
+   - `repository` (e.g. `tree-sitter/tree-sitter-rust`)
+   - `revision` (tag or commit SHA)
+   - `queryPath` (usually `queries/highlights.scm`)
+   - `targetPath` (extension `highlights.scm`)
+   - optional `overridePath` (e.g. `highlights.override.scm`)
+   - optional `replacements` for tiny deterministic patches
+2. Add/modify `<extension>/highlights.override.scm` for local Athas-specific rules.
+3. Run:
+   ```bash
+   bun run scripts/sync-upstream-queries.ts
+   ```
+4. Verify:
+   ```bash
+   bun run scripts/sync-upstream-queries.ts --check
+   ```
+
+`highlights.scm` is treated as generated output for entries in `query-sources.json`.
 
 ## Extension Manifest Format
 

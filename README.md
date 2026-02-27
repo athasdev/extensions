@@ -26,7 +26,20 @@ Root-level files:
 ```bash
 bun run scripts/validate.ts
 bun run scripts/generate-manifests.ts
+bun run scripts/sync-upstream-queries.ts
 ```
+
+## Upstream Query Sync
+
+Tree-sitter highlight queries can be pinned to upstream grammar repositories via
+`query-sources.json`.
+
+- `highlights.scm` is generated from pinned upstream sources.
+- Use `highlights.override.scm` for local Athas-specific fixes.
+- To verify everything is in sync:
+  ```bash
+  bun run scripts/sync-upstream-queries.ts --check
+  ```
 
 ## Contributing
 

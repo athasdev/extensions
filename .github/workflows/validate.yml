@@ -16,6 +16,9 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Check upstream-pinned highlight queries
+        run: bun run scripts/sync-upstream-queries.ts --check
+
       - name: Validate extension manifests
         run: bun run scripts/validate.ts
 
