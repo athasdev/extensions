@@ -225,6 +225,44 @@
       }
     }
   },
+  "dockerfile": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.dockerfile",
+    "name": "Dockerfile",
+    "displayName": "Dockerfile",
+    "version": "1.0.0",
+    "description": "Dockerfile language support with LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "dockerfile",
+        "extensions": [
+          ".dockerfile"
+        ],
+        "aliases": [
+          "Dockerfile",
+          "docker"
+        ],
+        "filenames": [
+          "Dockerfile",
+          "Containerfile"
+        ]
+      }
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "docker-langserver",
+        "runtime": "bun",
+        "package": "dockerfile-language-server-nodejs",
+        "args": [
+          "--stdio"
+        ]
+      }
+    }
+  },
   "elisp": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.elisp",
@@ -365,6 +403,54 @@
         "runtime": "go",
         "package": "mvdan.cc/gofumpt",
         "args": []
+      }
+    }
+  },
+  "graphql": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.graphql",
+    "name": "GraphQL",
+    "displayName": "GraphQL",
+    "version": "1.0.0",
+    "description": "GraphQL language support with LSP and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "graphql",
+        "extensions": [
+          ".graphql",
+          ".gql"
+        ],
+        "aliases": [
+          "GraphQL",
+          "gql"
+        ]
+      }
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "graphql-lsp",
+        "runtime": "bun",
+        "package": "graphql-language-service-cli",
+        "args": [
+          "server",
+          "-m",
+          "stream"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--parser",
+          "graphql",
+          "--stdin-filepath",
+          "${file}"
+        ]
       }
     }
   },
@@ -1037,6 +1123,93 @@
         "runtime": "binary",
         "args": [
           "--stdio"
+        ]
+      }
+    }
+  },
+  "sql": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.sql",
+    "name": "SQL",
+    "displayName": "SQL",
+    "version": "1.0.0",
+    "description": "SQL language support with LSP and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "sql",
+        "extensions": [
+          ".sql",
+          ".dsql"
+        ],
+        "aliases": [
+          "SQL",
+          "sql"
+        ]
+      }
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "sql-language-server",
+        "runtime": "bun",
+        "package": "sql-language-server",
+        "args": [
+          "up",
+          "--method",
+          "stdio"
+        ]
+      },
+      "formatter": {
+        "name": "sql-formatter",
+        "runtime": "bun",
+        "package": "sql-formatter",
+        "args": []
+      }
+    }
+  },
+  "svelte": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.svelte",
+    "name": "Svelte",
+    "displayName": "Svelte",
+    "version": "1.0.0",
+    "description": "Svelte language support with LSP and formatting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "svelte",
+        "extensions": [
+          ".svelte"
+        ],
+        "aliases": [
+          "Svelte"
+        ]
+      }
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "svelteserver",
+        "runtime": "bun",
+        "package": "svelte-language-server",
+        "args": [
+          "--stdio"
+        ]
+      },
+      "formatter": {
+        "name": "prettier",
+        "runtime": "bun",
+        "package": "prettier",
+        "args": [
+          "--plugin",
+          "prettier-plugin-svelte",
+          "--stdin-filepath",
+          "${file}"
         ]
       }
     }

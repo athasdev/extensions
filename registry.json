@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-03-02T14:46:18.761Z",
+  "lastUpdated": "2026-03-05T00:42:09.503Z",
   "extensions": [
     {
       "id": "athas.bash",
@@ -81,6 +81,19 @@
       "manifestUrl": "https://athas.dev/extensions/dart/extension.json"
     },
     {
+      "id": "athas.dockerfile",
+      "name": "Dockerfile",
+      "displayName": "Dockerfile Language Support",
+      "description": "Dockerfile language support with LSP",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/dockerfile/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/dockerfile/extension.json"
+    },
+    {
       "id": "athas.elisp",
       "name": "EmacsLisp",
       "displayName": "Emacs Lisp Language Support",
@@ -131,6 +144,19 @@
       "downloads": 0,
       "rating": 0,
       "manifestUrl": "https://athas.dev/extensions/go/extension.json"
+    },
+    {
+      "id": "athas.graphql",
+      "name": "GraphQL",
+      "displayName": "GraphQL Language Support",
+      "description": "GraphQL language support with LSP and formatting",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/graphql/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/graphql/extension.json"
     },
     {
       "id": "athas.html",
@@ -352,6 +378,32 @@
       "downloads": 0,
       "rating": 0,
       "manifestUrl": "https://athas.dev/extensions/solidity/extension.json"
+    },
+    {
+      "id": "athas.sql",
+      "name": "SQL",
+      "displayName": "SQL Language Support",
+      "description": "SQL language support with LSP and formatting",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/sql/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/sql/extension.json"
+    },
+    {
+      "id": "athas.svelte",
+      "name": "Svelte",
+      "displayName": "Svelte Language Support",
+      "description": "Svelte language support with LSP and formatting",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/svelte/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/svelte/extension.json"
     },
     {
       "id": "athas.swift",

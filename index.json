@@ -72,6 +72,18 @@
     "rating": 0
   },
   {
+    "id": "athas.dockerfile",
+    "name": "Dockerfile Language Support",
+    "description": "Dockerfile language support with LSP",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/dockerfile/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/dockerfile/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.elisp",
     "name": "Emacs Lisp Language Support",
     "description": "Emacs Lisp language support",
@@ -116,6 +128,18 @@
     "category": "Languages",
     "icon": "https://athas.dev/extensions/go/icon.svg",
     "manifestUrl": "https://athas.dev/extensions/go/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.graphql",
+    "name": "GraphQL Language Support",
+    "description": "GraphQL language support with LSP and formatting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/graphql/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/graphql/extension.json",
     "downloads": 0,
     "rating": 0
   },
@@ -320,6 +344,30 @@
     "category": "Languages",
     "icon": "https://athas.dev/extensions/solidity/icon.svg",
     "manifestUrl": "https://athas.dev/extensions/solidity/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.sql",
+    "name": "SQL Language Support",
+    "description": "SQL language support with LSP and formatting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/sql/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/sql/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.svelte",
+    "name": "Svelte Language Support",
+    "description": "Svelte language support with LSP and formatting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/svelte/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/svelte/extension.json",
     "downloads": 0,
     "rating": 0
   },
