@@ -4,7 +4,7 @@
   "name": "ReScript",
   "displayName": "ReScript",
   "version": "1.0.0",
-  "description": "ReScript language support with syntax highlighting and LSP",
+  "description": "ReScript language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -23,10 +23,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "rescript-language-server",
       "runtime": "binary",

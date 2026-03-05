@@ -4,32 +4,40 @@
   "name": "JSON",
   "displayName": "JSON",
   "version": "1.0.0",
-  "description": "JSON language support with syntax highlighting, LSP, and formatting",
+  "description": "JSON language support with LSP and formatting",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "json",
-      "extensions": [".json", ".jsonc"],
-      "aliases": ["JSON"]
+      "extensions": [
+        ".json",
+        ".jsonc"
+      ],
+      "aliases": [
+        "JSON"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "vscode-json-language-server",
       "runtime": "bun",
       "package": "vscode-langservers-extracted",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     }
   }
 }

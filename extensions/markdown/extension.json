@@ -4,32 +4,42 @@
   "name": "Markdown",
   "displayName": "Markdown",
   "version": "1.0.0",
-  "description": "Markdown language support with syntax highlighting, LSP, and formatting",
+  "description": "Markdown language support with LSP and formatting",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "markdown",
-      "extensions": [".md", ".markdown", ".mdx"],
-      "aliases": ["Markdown", "md"]
+      "extensions": [
+        ".md",
+        ".markdown",
+        ".mdx"
+      ],
+      "aliases": [
+        "Markdown",
+        "md"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "marksman",
       "runtime": "binary",
       "downloadUrl": "https://athas.dev/extensions/markdown/markdown-${os}-${arch}.tar.gz",
-      "args": ["server"]
+      "args": [
+        "server"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     }
   }
 }

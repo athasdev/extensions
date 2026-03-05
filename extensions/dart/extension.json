@@ -4,7 +4,7 @@
   "name": "Dart",
   "displayName": "Dart",
   "version": "1.0.0",
-  "description": "Dart language support with syntax highlighting and LSP",
+  "description": "Dart language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -21,10 +21,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "dart",
       "runtime": "binary",

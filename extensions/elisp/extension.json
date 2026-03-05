@@ -4,20 +4,22 @@
   "name": "EmacsLisp",
   "displayName": "Emacs Lisp",
   "version": "1.0.0",
-  "description": "Emacs Lisp language support with syntax highlighting",
+  "description": "Emacs Lisp language support",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "elisp",
-      "extensions": [".el", ".emacs"],
-      "aliases": ["Emacs Lisp", "elisp"]
+      "extensions": [
+        ".el",
+        ".emacs"
+      ],
+      "aliases": [
+        "Emacs Lisp",
+        "elisp"
+      ]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    }
-  }
+  ]
 }

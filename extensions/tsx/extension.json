@@ -4,38 +4,52 @@
   "name": "TSX",
   "displayName": "TypeScript JSX",
   "version": "1.0.0",
-  "description": "TypeScript JSX/React support with syntax highlighting, LSP, and tooling",
+  "description": "TypeScript JSX/React support with LSP and tooling",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "typescriptreact",
-      "extensions": [".tsx"],
-      "aliases": ["TSX", "TypeScript React"]
+      "extensions": [
+        ".tsx"
+      ],
+      "aliases": [
+        "TSX",
+        "TypeScript React"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "typescript-language-server",
       "runtime": "bun",
       "package": "typescript-language-server",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     },
     "linter": {
       "name": "eslint",
       "runtime": "bun",
       "package": "eslint",
-      "args": ["--stdin", "--stdin-filename", "${file}", "--format", "json"]
+      "args": [
+        "--stdin",
+        "--stdin-filename",
+        "${file}",
+        "--format",
+        "json"
+      ]
     }
   }
 }

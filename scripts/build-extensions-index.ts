@@ -92,8 +92,6 @@ async function buildCatalog() {
 
   for (const folder of folders) {
     const manifestPath = join(extensionsDir, folder, "extension.json");
-    const parserPath = join(extensionsDir, folder, "parser.wasm");
-    const highlightsPath = join(extensionsDir, folder, "highlights.scm");
     const manifestRaw = await readFile(manifestPath, "utf8");
     const manifest = JSON.parse(manifestRaw) as ExternalLanguageManifest;
 
@@ -104,12 +102,6 @@ async function buildCatalog() {
     const languages = manifest.languages ?? [];
     if (languages.length === 0) {
       throw new Error(`No languages declared in ${manifestPath}`);
-    }
-
-    // parser.wasm files are stored on CDN, not in git - skip check
-    // highlights.scm should be in git
-    if (!existsSync(highlightsPath)) {
-      console.warn(`Warning: Missing highlights.scm for ${manifest.id}`);
     }
 
     for (const language of languages) {

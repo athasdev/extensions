@@ -4,7 +4,7 @@
   "name": "Elixir",
   "displayName": "Elixir",
   "version": "1.0.0",
-  "description": "Elixir language support with syntax highlighting and LSP",
+  "description": "Elixir language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -22,10 +22,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "elixir-ls",
       "runtime": "binary",

@@ -4,26 +4,39 @@
   "name": "PHP",
   "displayName": "PHP",
   "version": "1.0.0",
-  "description": "PHP language support with syntax highlighting and LSP",
+  "description": "PHP language support with LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "php",
-      "extensions": [".php", ".phtml", ".php3", ".php4", ".php5", ".php7", ".php8", ".phar", ".phps"],
-      "aliases": ["PHP", "php"]
+      "extensions": [
+        ".php",
+        ".phtml",
+        ".php3",
+        ".php4",
+        ".php5",
+        ".php7",
+        ".php8",
+        ".phar",
+        ".phps"
+      ],
+      "aliases": [
+        "PHP",
+        "php"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "intelephense",
       "runtime": "bun",
       "package": "intelephense",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     }
   }
 }

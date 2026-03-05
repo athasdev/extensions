@@ -10,13 +10,21 @@
   "capabilities": {
     "type": "language",
     "languageId": "php",
-    "fileExtensions": ["php", "phtml", "php3", "php4", "php5", "php7", "php8", "phar", "phps"],
-    "aliases": ["PHP", "php"],
-    "grammar": {
-      "wasmPath": "parsers/tree-sitter-php.wasm",
-      "highlightQuery": "queries/highlights.scm",
-      "scopeName": "source.php"
-    },
+    "fileExtensions": [
+      "php",
+      "phtml",
+      "php3",
+      "php4",
+      "php5",
+      "php7",
+      "php8",
+      "phar",
+      "phps"
+    ],
+    "aliases": [
+      "PHP",
+      "php"
+    ],
     "lsp": {
       "server": {
         "darwin-arm64": "lsp/intelephense-darwin-arm64",
@@ -24,9 +32,23 @@
         "linux-x64": "lsp/intelephense-linux-x64",
         "win32-x64": "lsp/intelephense-win32-x64.exe"
       },
-      "args": ["--stdio"],
-      "fileExtensions": [".php", ".phtml", ".php3", ".php4", ".php5", ".php7", ".php8", ".phar", ".phps"],
-      "languageIds": ["php"]
+      "args": [
+        "--stdio"
+      ],
+      "fileExtensions": [
+        ".php",
+        ".phtml",
+        ".php3",
+        ".php4",
+        ".php5",
+        ".php7",
+        ".php8",
+        ".phar",
+        ".phps"
+      ],
+      "languageIds": [
+        "php"
+      ]
     },
     "snippets": "snippets.json",
     "commands": [

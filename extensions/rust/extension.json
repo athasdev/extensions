@@ -4,21 +4,24 @@
   "name": "Rust",
   "displayName": "Rust",
   "version": "1.0.0",
-  "description": "Rust language support with syntax highlighting and LSP",
+  "description": "Rust language support with LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "rust",
-      "extensions": [".rs"],
-      "aliases": ["Rust", "rs"]
+      "extensions": [
+        ".rs"
+      ],
+      "aliases": [
+        "Rust",
+        "rs"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "rust-analyzer",
       "runtime": "binary",

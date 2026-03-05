@@ -1,6 +1,8 @@
 # Contributing Extensions
 
-This repository contains extensions for the [Athas](https://athas.dev) editor. Extensions can provide language support (syntax highlighting, LSP, formatting, linting), themes, icon themes, snippets, keymaps, and more.
+This repository contains extensions for the [Athas](https://athas.dev) editor. Extensions can provide language tooling support (LSP, formatting, linting, snippets), themes, icon themes, keymaps, and more.
+
+Syntax highlighting is bundled in Athas core and is not managed by these extensions.
 
 ## Repository Structure
 
@@ -8,12 +10,8 @@ This repository contains extensions for the [Athas](https://athas.dev) editor. E
 extensions/
   bash/
     extension.json      # Extension manifest
-    parser.wasm         # Tree-sitter WASM grammar
-    highlights.scm      # Tree-sitter highlight queries
   lua/
     extension.json      # Extension manifest
-    parser.wasm
-    highlights.scm
     tooling.json        # Platform-specific tooling (pre-built LSP, formatter, linter binaries)
     build.sh            # Build script for tooling archives
   ...
@@ -26,7 +24,6 @@ scripts/                # Validation and generation scripts
 - `extension.json` defines the extension manifest (category, capabilities, tool references)
 - `tooling.json` (optional) defines pre-built platform-specific binaries distributed as tarballs
 - Not every extension has a `tooling.json`. Extensions without one rely on runtime-installed tools
-- `query-sources.json` pins upstream Tree-sitter highlight query sources for opt-in languages
 
 ## Adding a New Extension
 
@@ -41,7 +38,7 @@ scripts/                # Validation and generation scripts
   "name": "MyLang",
   "displayName": "MyLang",
   "version": "1.0.0",
-  "description": "MyLang language support with syntax highlighting",
+  "description": "MyLang language support with LSP",
   "publisher": "Athas",
   "categories": ["Language"],
   "languages": [
@@ -50,53 +47,22 @@ scripts/                # Validation and generation scripts
       "extensions": [".ml"],
       "aliases": ["MyLang"]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    }
-  }
+  ]
 }
 ```
 
-3. Add the required files for your extension type (e.g., `parser.wasm` and `highlights.scm` for language extensions).
+3. Add capability entries in `capabilities` only for tooling provided by the extension (`lsp`, `formatter`, `linter`, snippets/commands as needed).
 
-4. Update `registry.json` and `index.json` to include your extension.
-
-5. Regenerate `manifests.json`:
+4. Regenerate generated files:
    ```bash
    bun run scripts/generate-manifests.ts
+   bun run scripts/build-extensions-index.ts
    ```
 
-6. Validate your extension:
+5. Validate your extension:
    ```bash
    bun run scripts/validate.ts
    ```
-
-## Upstream Tree-sitter Queries
-
-For language extensions, prefer pinned upstream queries instead of hand-editing
-`highlights.scm` directly.
-
-1. Add an entry in `query-sources.json` with:
-   - `repository` (e.g. `tree-sitter/tree-sitter-rust`)
-   - `revision` (tag or commit SHA)
-   - `queryPath` (usually `queries/highlights.scm`)
-   - `targetPath` (extension `highlights.scm`)
-   - optional `overridePath` (e.g. `highlights.override.scm`)
-   - optional `replacements` for tiny deterministic patches
-2. Add/modify `<extension>/highlights.override.scm` for local Athas-specific rules.
-3. Run:
-   ```bash
-   bun run scripts/sync-upstream-queries.ts
-   ```
-4. Verify:
-   ```bash
-   bun run scripts/sync-upstream-queries.ts --check
-   ```
-
-`highlights.scm` is treated as generated output for entries in `query-sources.json`.
 
 ## Extension Manifest Format
 
@@ -111,7 +77,7 @@ For language extensions, prefer pinned upstream queries instead of hand-editing
 
 ### Categories
 
-- `Language` - Language support (grammar, LSP, formatter, linter)
+- `Language` - Language tooling support (LSP, formatter, linter, snippets, commands)
 - `Theme` - Editor themes
 - `Snippets` - Code snippets
 - `Keymaps` - Keyboard shortcut presets
@@ -120,15 +86,6 @@ For language extensions, prefer pinned upstream queries instead of hand-editing
 - `Other` - Everything else
 
 ### Language Capabilities
-
-#### Grammar
-
-```json
-"grammar": {
-  "wasmPath": "parser.wasm",
-  "highlightQuery": "highlights.scm"
-}
-```
 
 #### LSP
 

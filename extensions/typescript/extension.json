@@ -4,38 +4,54 @@
   "name": "TypeScript",
   "displayName": "TypeScript",
   "version": "1.0.0",
-  "description": "TypeScript language support with syntax highlighting, LSP, and tooling",
+  "description": "TypeScript language support with LSP and tooling",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "typescript",
-      "extensions": [".ts", ".mts", ".cts"],
-      "aliases": ["TypeScript", "ts"]
+      "extensions": [
+        ".ts",
+        ".mts",
+        ".cts"
+      ],
+      "aliases": [
+        "TypeScript",
+        "ts"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "typescript-language-server",
       "runtime": "bun",
       "package": "typescript-language-server",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     },
     "linter": {
       "name": "eslint",
       "runtime": "bun",
       "package": "eslint",
-      "args": ["--stdin", "--stdin-filename", "${file}", "--format", "json"]
+      "args": [
+        "--stdin",
+        "--stdin-filename",
+        "${file}",
+        "--format",
+        "json"
+      ]
     }
   }
 }

@@ -11,13 +11,13 @@
   "capabilities": {
     "type": "language",
     "languageId": "css",
-    "fileExtensions": ["css"],
-    "aliases": ["CSS", "css"],
-    "grammar": {
-      "wasmPath": "parsers/tree-sitter-css.wasm",
-      "highlightQuery": "queries/css/highlights.scm",
-      "scopeName": "source.css"
-    },
+    "fileExtensions": [
+      "css"
+    ],
+    "aliases": [
+      "CSS",
+      "css"
+    ],
     "lsp": {
       "server": {
         "darwin-arm64": "lsp/node_modules/vscode-css-languageserver-bin/cssServerMain.js",
@@ -26,9 +26,15 @@
         "linux-arm64": "lsp/node_modules/vscode-css-languageserver-bin/cssServerMain.js",
         "win32-x64": "lsp/node_modules/vscode-css-languageserver-bin/cssServerMain.js"
       },
-      "args": ["--stdio"],
-      "fileExtensions": [".css"],
-      "languageIds": ["css"]
+      "args": [
+        "--stdio"
+      ],
+      "fileExtensions": [
+        ".css"
+      ],
+      "languageIds": [
+        "css"
+      ]
     }
   },
   "installation": {

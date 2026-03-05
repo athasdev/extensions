@@ -4,20 +4,22 @@
   "name": "QL",
   "displayName": "QL",
   "version": "1.0.0",
-  "description": "QL language support with syntax highlighting",
+  "description": "QL language support",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "ql",
-      "extensions": [".ql", ".qll"],
-      "aliases": ["QL", "CodeQL"]
+      "extensions": [
+        ".ql",
+        ".qll"
+      ],
+      "aliases": [
+        "QL",
+        "CodeQL"
+      ]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    }
-  }
+  ]
 }

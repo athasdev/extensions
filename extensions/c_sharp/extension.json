@@ -4,7 +4,7 @@
   "name": "CSharp",
   "displayName": "C#",
   "version": "1.0.0",
-  "description": "C# language support with syntax highlighting and LSP",
+  "description": "C# language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -23,10 +23,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "omnisharp",
       "runtime": "binary",

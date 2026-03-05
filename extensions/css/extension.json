@@ -4,32 +4,42 @@
   "name": "CSS",
   "displayName": "CSS",
   "version": "1.0.0",
-  "description": "CSS language support with syntax highlighting, LSP, and formatting",
+  "description": "CSS language support with LSP and formatting",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "css",
-      "extensions": [".css", ".scss", ".sass", ".less"],
-      "aliases": ["CSS"]
+      "extensions": [
+        ".css",
+        ".scss",
+        ".sass",
+        ".less"
+      ],
+      "aliases": [
+        "CSS"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "vscode-css-language-server",
       "runtime": "bun",
       "package": "vscode-langservers-extracted",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     }
   }
 }

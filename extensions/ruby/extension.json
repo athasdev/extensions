@@ -4,9 +4,11 @@
   "name": "Ruby",
   "displayName": "Ruby",
   "version": "1.0.0",
-  "description": "Ruby language support with syntax highlighting (Ruby, ERB, and common Rails templates)",
+  "description": "Ruby language support (Ruby, ERB and common Rails templates)",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "ruby",
@@ -26,7 +28,11 @@
         ".podspec",
         ".arb"
       ],
-      "aliases": ["Ruby", "rb", "erb"],
+      "aliases": [
+        "Ruby",
+        "rb",
+        "erb"
+      ],
       "filenames": [
         "Rakefile",
         "Gemfile",
@@ -46,17 +52,5 @@
         "Puppetfile"
       ]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
-    "embeddedGrammars": [
-      {
-        "id": "embedded-template",
-        "wasmPath": "embedded-template.wasm"
-      }
-    ]
-  }
+  ]
 }

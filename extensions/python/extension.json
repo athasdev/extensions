@@ -4,38 +4,56 @@
   "name": "Python",
   "displayName": "Python",
   "version": "1.0.0",
-  "description": "Python language support with syntax highlighting, LSP, and tooling",
+  "description": "Python language support with LSP and tooling",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "python",
-      "extensions": [".py", ".pyw", ".pyi"],
-      "aliases": ["Python", "python3"]
+      "extensions": [
+        ".py",
+        ".pyw",
+        ".pyi"
+      ],
+      "aliases": [
+        "Python",
+        "python3"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "pyright",
       "runtime": "bun",
       "package": "pyright",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "black",
       "runtime": "python",
       "package": "black",
-      "args": ["--stdin-filename", "${file}", "-"]
+      "args": [
+        "--stdin-filename",
+        "${file}",
+        "-"
+      ]
     },
     "linter": {
       "name": "ruff",
       "runtime": "python",
       "package": "ruff",
-      "args": ["check", "--stdin-filename", "${file}", "--output-format", "json", "-"]
+      "args": [
+        "check",
+        "--stdin-filename",
+        "${file}",
+        "--output-format",
+        "json",
+        "-"
+      ]
     }
   }
 }

@@ -4,32 +4,41 @@
   "name": "HTML",
   "displayName": "HTML",
   "version": "1.0.0",
-  "description": "HTML language support with syntax highlighting, LSP, and formatting",
+  "description": "HTML language support with LSP and formatting",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "html",
-      "extensions": [".html", ".htm", ".xhtml"],
-      "aliases": ["HTML"]
+      "extensions": [
+        ".html",
+        ".htm",
+        ".xhtml"
+      ],
+      "aliases": [
+        "HTML"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "vscode-html-language-server",
       "runtime": "bun",
       "package": "vscode-langservers-extracted",
-      "args": ["--stdio"]
+      "args": [
+        "--stdio"
+      ]
     },
     "formatter": {
       "name": "prettier",
       "runtime": "bun",
       "package": "prettier",
-      "args": ["--stdin-filepath", "${file}"]
+      "args": [
+        "--stdin-filepath",
+        "${file}"
+      ]
     }
   }
 }

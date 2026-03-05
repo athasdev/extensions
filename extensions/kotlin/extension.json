@@ -4,7 +4,7 @@
   "name": "Kotlin",
   "displayName": "Kotlin",
   "version": "1.0.0",
-  "description": "Kotlin language support with syntax highlighting and LSP",
+  "description": "Kotlin language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -22,10 +22,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "kotlin-language-server",
       "runtime": "binary",

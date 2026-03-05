@@ -4,7 +4,7 @@
   "name": "ObjectiveC",
   "displayName": "Objective-C",
   "version": "1.0.0",
-  "description": "Objective-C language support with syntax highlighting and LSP",
+  "description": "Objective-C language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -25,10 +25,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "clangd",
       "runtime": "binary",

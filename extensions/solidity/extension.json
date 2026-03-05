@@ -4,7 +4,7 @@
   "name": "Solidity",
   "displayName": "Solidity",
   "version": "1.0.0",
-  "description": "Solidity language support with syntax highlighting and LSP",
+  "description": "Solidity language support with LSP",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -21,10 +21,6 @@
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "solidity-language-server",
       "runtime": "binary",

@@ -11,13 +11,14 @@
   "capabilities": {
     "type": "language",
     "languageId": "html",
-    "fileExtensions": ["html", "htm"],
-    "aliases": ["HTML", "html"],
-    "grammar": {
-      "wasmPath": "parsers/tree-sitter-html.wasm",
-      "highlightQuery": "queries/html/highlights.scm",
-      "scopeName": "text.html.basic"
-    },
+    "fileExtensions": [
+      "html",
+      "htm"
+    ],
+    "aliases": [
+      "HTML",
+      "html"
+    ],
     "lsp": {
       "server": {
         "darwin-arm64": "lsp/node_modules/vscode-html-languageserver-bin/htmlServerMain.js",
@@ -26,9 +27,16 @@
         "linux-arm64": "lsp/node_modules/vscode-html-languageserver-bin/htmlServerMain.js",
         "win32-x64": "lsp/node_modules/vscode-html-languageserver-bin/htmlServerMain.js"
       },
-      "args": ["--stdio"],
-      "fileExtensions": [".html", ".htm"],
-      "languageIds": ["html"]
+      "args": [
+        "--stdio"
+      ],
+      "fileExtensions": [
+        ".html",
+        ".htm"
+      ],
+      "languageIds": [
+        "html"
+      ]
     }
   },
   "installation": {

@@ -4,21 +4,23 @@
   "name": "Lua",
   "displayName": "Lua",
   "version": "1.0.0",
-  "description": "Lua language support with syntax highlighting and LSP",
+  "description": "Lua language support with LSP",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "lua",
-      "extensions": [".lua"],
-      "aliases": ["Lua"]
+      "extensions": [
+        ".lua"
+      ],
+      "aliases": [
+        "Lua"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "lua-language-server",
       "runtime": "binary",
@@ -27,12 +29,17 @@
     "formatter": {
       "name": "stylua",
       "runtime": "binary",
-      "args": ["-"]
+      "args": [
+        "-"
+      ]
     },
     "linter": {
       "name": "luacheck",
       "runtime": "binary",
-      "args": ["--formatter", "plain"]
+      "args": [
+        "--formatter",
+        "plain"
+      ]
     }
   }
 }

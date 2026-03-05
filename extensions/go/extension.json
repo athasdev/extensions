@@ -4,33 +4,46 @@
   "name": "Go",
   "displayName": "Go",
   "version": "1.0.0",
-  "description": "Go language support with syntax highlighting, LSP, and tooling",
+  "description": "Go language support with LSP and tooling",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "go",
-      "extensions": [".go"],
-      "aliases": ["Go", "golang"],
-      "filenames": ["go.mod", "go.sum", "go.work"]
+      "extensions": [
+        ".go"
+      ],
+      "aliases": [
+        "Go",
+        "golang"
+      ],
+      "filenames": [
+        "go.mod",
+        "go.sum",
+        "go.work"
+      ]
     }
   ],
   "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    },
     "lsp": {
       "name": "gopls",
       "runtime": "go",
       "package": "golang.org/x/tools/gopls",
-      "args": ["serve"]
+      "args": [
+        "serve"
+      ]
     },
     "linter": {
       "name": "golangci-lint",
       "runtime": "go",
       "package": "github.com/golangci/golangci-lint/cmd/golangci-lint",
-      "args": ["run", "--out-format", "json"]
+      "args": [
+        "run",
+        "--out-format",
+        "json"
+      ]
     },
     "formatter": {
       "name": "gofumpt",

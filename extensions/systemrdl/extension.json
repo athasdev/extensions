@@ -4,20 +4,21 @@
   "name": "SystemRDL",
   "displayName": "SystemRDL",
   "version": "1.0.0",
-  "description": "SystemRDL language support with syntax highlighting",
+  "description": "SystemRDL language support",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "systemrdl",
-      "extensions": [".rdl"],
-      "aliases": ["SystemRDL", "systemrdl"]
+      "extensions": [
+        ".rdl"
+      ],
+      "aliases": [
+        "SystemRDL",
+        "systemrdl"
+      ]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    }
-  }
+  ]
 }

@@ -4,20 +4,22 @@
   "name": "TLAPLUS",
   "displayName": "TLA+",
   "version": "1.0.0",
-  "description": "TLA+ language support with syntax highlighting",
+  "description": "TLA+ language support",
   "publisher": "Athas",
-  "categories": ["Language"],
+  "categories": [
+    "Language"
+  ],
   "languages": [
     {
       "id": "tlaplus",
-      "extensions": [".tla"],
-      "aliases": ["TLA+", "TLAPLUS", "tlaplus"]
+      "extensions": [
+        ".tla"
+      ],
+      "aliases": [
+        "TLA+",
+        "TLAPLUS",
+        "tlaplus"
+      ]
     }
-  ],
-  "capabilities": {
-    "grammar": {
-      "wasmPath": "parser.wasm",
-      "highlightQuery": "highlights.scm"
-    }
-  }
+  ]
 }
