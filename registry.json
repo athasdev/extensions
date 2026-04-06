@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-03-05T00:42:09.503Z",
+  "lastUpdated": "2026-04-06T12:47:33.582Z",
   "extensions": [
     {
       "id": "athas.bash",
@@ -58,7 +58,7 @@
       "id": "athas.css",
       "name": "CSS",
       "displayName": "CSS Language Support",
-      "description": "CSS language support with LSP and formatting",
+      "description": "CSS, SCSS, SASS, and Less language support with LSP and formatting",
       "version": "1.0.0",
       "publisher": "Athas",
       "category": "language",
@@ -289,6 +289,19 @@
       "manifestUrl": "https://athas.dev/extensions/php/extension.json"
     },
     {
+      "id": "athas.protobuf",
+      "name": "Protobuf",
+      "displayName": "Protocol Buffers Language Support",
+      "description": "Protocol Buffers language support with syntax highlighting",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/protobuf/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/protobuf/extension.json"
+    },
+    {
       "id": "athas.python",
       "name": "Python",
       "displayName": "Python Language Support",
@@ -432,6 +445,19 @@
       "manifestUrl": "https://athas.dev/extensions/systemrdl/extension.json"
     },
     {
+      "id": "athas.terraform",
+      "name": "Terraform",
+      "displayName": "Terraform Language Support",
+      "description": "Terraform and HCL language support with LSP",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/terraform/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/terraform/extension.json"
+    },
+    {
       "id": "athas.tlaplus",
       "name": "TLAPLUS",
       "displayName": "TLA+ Language Support",
@@ -495,6 +521,19 @@
       "downloads": 0,
       "rating": 0,
       "manifestUrl": "https://athas.dev/extensions/vue/extension.json"
+    },
+    {
+      "id": "athas.xml",
+      "name": "XML",
+      "displayName": "XML Language Support",
+      "description": "XML and SVG language support with syntax highlighting",
+      "version": "1.0.0",
+      "publisher": "Athas",
+      "category": "language",
+      "icon": "https://athas.dev/extensions/xml/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/xml/extension.json"
     },
     {
       "id": "athas.yaml",

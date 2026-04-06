@@ -4,7 +4,7 @@
   "name": "CSS",
   "displayName": "CSS",
   "version": "1.0.0",
-  "description": "CSS language support with LSP and formatting",
+  "description": "CSS, SCSS, SASS, and Less language support with LSP and formatting",
   "publisher": "Athas",
   "categories": [
     "Language"
@@ -12,15 +12,23 @@
   "languages": [
     {
       "id": "css",
-      "extensions": [
-        ".css",
-        ".scss",
-        ".sass",
-        ".less"
-      ],
-      "aliases": [
-        "CSS"
-      ]
+      "extensions": [".css"],
+      "aliases": ["CSS"]
+    },
+    {
+      "id": "scss",
+      "extensions": [".scss"],
+      "aliases": ["SCSS"]
+    },
+    {
+      "id": "sass",
+      "extensions": [".sass"],
+      "aliases": ["Sass"]
+    },
+    {
+      "id": "less",
+      "extensions": [".less"],
+      "aliases": ["Less"]
     }
   ],
   "capabilities": {

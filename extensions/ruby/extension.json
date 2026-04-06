@@ -52,5 +52,14 @@
         "Puppetfile"
       ]
     }
-  ]
+  ],
+  "capabilities": {
+    "lsp": {
+      "name": "solargraph",
+      "runtime": "binary",
+      "args": [
+        "stdio"
+      ]
+    }
+  }
 }

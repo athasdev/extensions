@@ -153,7 +153,7 @@
     "name": "CSS",
     "displayName": "CSS",
     "version": "1.0.0",
-    "description": "CSS language support with LSP and formatting",
+    "description": "CSS, SCSS, SASS, and Less language support with LSP and formatting",
     "publisher": "Athas",
     "categories": [
       "Language"
@@ -162,13 +162,37 @@
       {
         "id": "css",
         "extensions": [
-          ".css",
-          ".scss",
-          ".sass",
-          ".less"
+          ".css"
         ],
         "aliases": [
           "CSS"
+        ]
+      },
+      {
+        "id": "scss",
+        "extensions": [
+          ".scss"
+        ],
+        "aliases": [
+          "SCSS"
+        ]
+      },
+      {
+        "id": "sass",
+        "extensions": [
+          ".sass"
+        ],
+        "aliases": [
+          "Sass"
+        ]
+      },
+      {
+        "id": "less",
+        "extensions": [
+          ".less"
+        ],
+        "aliases": [
+          "Less"
         ]
       }
     ],
@@ -859,6 +883,31 @@
       }
     }
   },
+  "protobuf": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.protobuf",
+    "name": "Protobuf",
+    "displayName": "Protocol Buffers",
+    "version": "1.0.0",
+    "description": "Protocol Buffers language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "protobuf",
+        "extensions": [
+          ".proto"
+        ],
+        "aliases": [
+          "Protocol Buffers",
+          "Protobuf",
+          "proto"
+        ]
+      }
+    ]
+  },
   "python": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.python",
@@ -1031,7 +1080,16 @@
           "Puppetfile"
         ]
       }
-    ]
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "solargraph",
+        "runtime": "binary",
+        "args": [
+          "stdio"
+        ]
+      }
+    }
   },
   "rust": {
     "$schema": "https://athas.dev/schemas/extension.json",
@@ -1268,6 +1326,41 @@
       }
     ]
   },
+  "terraform": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.terraform",
+    "name": "Terraform",
+    "displayName": "Terraform",
+    "version": "1.0.0",
+    "description": "Terraform and HCL language support with LSP",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "terraform",
+        "extensions": [
+          ".tf",
+          ".tfvars"
+        ],
+        "aliases": [
+          "Terraform",
+          "HCL",
+          "hcl"
+        ]
+      }
+    ],
+    "capabilities": {
+      "lsp": {
+        "name": "terraform-ls",
+        "runtime": "binary",
+        "args": [
+          "serve"
+        ]
+      }
+    }
+  },
   "tlaplus": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.tlaplus",
@@ -1501,6 +1594,45 @@
         ]
       }
     }
+  },
+  "xml": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.xml",
+    "name": "XML",
+    "displayName": "XML",
+    "version": "1.0.0",
+    "description": "XML and SVG language support with syntax highlighting",
+    "publisher": "Athas",
+    "categories": [
+      "Language"
+    ],
+    "languages": [
+      {
+        "id": "xml",
+        "extensions": [
+          ".xml",
+          ".xsl",
+          ".xslt",
+          ".xsd",
+          ".dtd",
+          ".wsdl",
+          ".plist",
+          ".svg",
+          ".csproj",
+          ".vbproj",
+          ".fsproj",
+          ".props",
+          ".targets"
+        ],
+        "aliases": [
+          "XML",
+          "xml"
+        ],
+        "filenames": [
+          ".xml"
+        ]
+      }
+    ]
   },
   "yaml": {
     "$schema": "https://athas.dev/schemas/extension.json",

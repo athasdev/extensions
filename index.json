@@ -50,7 +50,7 @@
   {
     "id": "athas.css",
     "name": "CSS Language Support",
-    "description": "CSS language support with LSP and formatting",
+    "description": "CSS, SCSS, SASS, and Less language support with LSP and formatting",
     "version": "1.0.0",
     "author": "Athas",
     "category": "Languages",
@@ -264,6 +264,18 @@
     "rating": 0
   },
   {
+    "id": "athas.protobuf",
+    "name": "Protocol Buffers Language Support",
+    "description": "Protocol Buffers language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/protobuf/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/protobuf/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.python",
     "name": "Python Language Support",
     "description": "Python language support with LSP and tooling",
@@ -396,6 +408,18 @@
     "rating": 0
   },
   {
+    "id": "athas.terraform",
+    "name": "Terraform Language Support",
+    "description": "Terraform and HCL language support with LSP",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/terraform/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/terraform/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.tlaplus",
     "name": "TLA+ Language Support",
     "description": "TLA+ language support",
@@ -452,6 +476,18 @@
     "category": "Languages",
     "icon": "https://athas.dev/extensions/vue/icon.svg",
     "manifestUrl": "https://athas.dev/extensions/vue/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.xml",
+    "name": "XML Language Support",
+    "description": "XML and SVG language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/xml/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/xml/extension.json",
     "downloads": 0,
     "rating": 0
   },
