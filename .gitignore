@@ -8,6 +8,7 @@ node_modules/
 # Build artifacts
 dist/
 *.tgz
+.grammar-build/
 
 # WASM binaries (stored on CDN, not in git)
 *.wasm

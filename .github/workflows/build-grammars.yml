@@ -1,0 +1,85 @@
+name: Build & Deploy Grammars
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "extensions/*/extension.json"
+      - "extensions/*/highlights.scm"
+      - "grammar-sources.json"
+  workflow_dispatch:
+    inputs:
+      languages:
+        description: "Comma-separated language IDs to rebuild (empty = all missing)"
+        required: false
+        type: string
+
+jobs:
+  build-grammars:
+    if: github.repository == 'athasdev/extensions'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install tree-sitter CLI
+        run: npm install -g tree-sitter-cli
+
+      - name: Build parser.wasm files
+        run: bun run scripts/build-grammars.ts ${{ inputs.languages && format('--languages {0}', inputs.languages) || '' }}
+
+      - name: Upload grammar artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: parser-wasm-files
+          path: extensions/*/parser.wasm
+          retention-days: 30
+
+  deploy-grammars:
+    needs: build-grammars
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download grammar artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: parser-wasm-files
+          path: extensions/
+
+      - name: List built grammars
+        run: find extensions -name "parser.wasm" -exec ls -lh {} \;
+
+      - name: Deploy to CDN via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: echo "CDN ready for rsync"
+
+      - name: Sync grammars to CDN
+        uses: burnett01/rsync-deployments@7.0.2
+        with:
+          switches: -avz --include='*/' --include='parser.wasm' --include='*.json' --include='*.scm' --exclude='*'
+          path: extensions/
+          remote_path: ${{ secrets.EXTENSIONS_CDN_ROOT }}/
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_SSH_KEY }}
+          remote_port: ${{ secrets.VPS_PORT || 22 }}
+
+      - name: Sync catalog files to CDN
+        uses: burnett01/rsync-deployments@7.0.2
+        with:
+          switches: -avz
+          path: registry.json index.json manifests.json
+          remote_path: ${{ secrets.EXTENSIONS_CDN_ROOT }}/
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_SSH_KEY }}
+          remote_port: ${{ secrets.VPS_PORT || 22 }}

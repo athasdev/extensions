@@ -29,3 +29,28 @@ jobs:
 
       - name: Check registry.json and index.json are up to date
         run: bun run scripts/build-extensions-index.ts --check
+
+      - name: Validate grammar-sources.json
+        run: |
+          node -e "
+            const sources = require('./grammar-sources.json');
+            const fs = require('fs');
+            const dirs = fs.readdirSync('extensions', { withFileTypes: true })
+              .filter(d => d.isDirectory()).map(d => d.name);
+            let errors = 0;
+            for (const dir of dirs) {
+              const hasHighlights = fs.existsSync('extensions/' + dir + '/highlights.scm');
+              const hasSource = !!sources[dir];
+              if (hasHighlights && !hasSource) {
+                console.warn('Warning: ' + dir + ' has highlights.scm but no entry in grammar-sources.json');
+              }
+            }
+            for (const [lang, src] of Object.entries(sources)) {
+              if (!fs.existsSync('extensions/' + lang)) {
+                console.error('Error: grammar-sources.json references ' + lang + ' but extensions/' + lang + '/ does not exist');
+                errors++;
+              }
+            }
+            if (errors > 0) process.exit(1);
+            console.log('grammar-sources.json: OK (' + Object.keys(sources).length + ' grammars)');
+          "
