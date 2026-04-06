@@ -1,6 +1,6 @@
 {
   "bash": {
-    "repository": "tree-sitter-grammars/tree-sitter-bash",
+    "repository": "tree-sitter/tree-sitter-bash",
     "path": "."
   },
   "c": {
@@ -20,7 +20,7 @@
     "path": "."
   },
   "dart": {
-    "repository": "UserNobworker/tree-sitter-dart",
+    "repository": "UserNobody14/tree-sitter-dart",
     "path": "."
   },
   "dockerfile": {
@@ -104,7 +104,7 @@
     "path": "."
   },
   "sql": {
-    "repository": "m-novikov/tree-sitter-sql",
+    "repository": "maxdeviant/tree-sitter-sql",
     "path": "."
   },
   "svelte": {
