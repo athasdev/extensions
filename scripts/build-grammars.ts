@@ -71,9 +71,9 @@ async function buildGrammar(
       await $`tree-sitter generate`.cwd(buildPath).quiet();
     }
 
-    // Build wasm (5 minute timeout per grammar)
+    // Build wasm
     await mkdir(join(EXTENSIONS_DIR, lang), { recursive: true });
-    await $`tree-sitter build --wasm -o ${wasmOutput} ${buildPath}`.timeout(300_000);
+    await $`tree-sitter build --wasm -o ${wasmOutput} ${buildPath}`;
 
     if (existsSync(wasmOutput)) {
       const stat = Bun.file(wasmOutput);
