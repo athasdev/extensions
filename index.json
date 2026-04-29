@@ -228,6 +228,18 @@
     "rating": 0
   },
   {
+    "id": "athas.nix",
+    "name": "Nix Language Support",
+    "description": "Nix language support with syntax highlighting",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Languages",
+    "icon": "https://athas.dev/extensions/nix/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/nix/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.objc",
     "name": "Objective-C Language Support",
     "description": "Objective-C language support with LSP",

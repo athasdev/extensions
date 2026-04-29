@@ -71,6 +71,10 @@
     "repository": "tree-sitter-grammars/tree-sitter-lua",
     "path": "."
   },
+  "nix": {
+    "repository": "nix-community/tree-sitter-nix",
+    "path": "."
+  },
   "objc": {
     "repository": "amaanq/tree-sitter-objc",
     "path": "."
