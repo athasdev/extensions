@@ -2,7 +2,8 @@
 
 import { $ } from "bun";
 import { createHash } from "node:crypto";
-import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -43,6 +44,23 @@ async function sha256(path: string) {
   return createHash("sha256").update(bytes).digest("hex");
 }
 
+async function createStablePackage(extensionDir: string, manifest: Record<string, unknown>, packagePath: string) {
+  const tempDir = await mkdtemp(join(tmpdir(), "athas-extension-"));
+
+  try {
+    await $`rsync -az --exclude='.DS_Store' ${extensionDir}/ ${tempDir}/`;
+
+    const packagedManifest = { ...manifest };
+    delete packagedManifest.installation;
+    await writeFile(join(tempDir, "extension.json"), `${JSON.stringify(packagedManifest, null, 2)}\n`);
+
+    await $`find ${tempDir} -exec touch -t 202001010000 {} +`;
+    await $`tar --no-xattrs -czf ${packagePath} -C ${tempDir} .`;
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+}
+
 const folders = await collectExtensionFolders(extensionsDir);
 let packagedCount = 0;
 
@@ -58,7 +76,7 @@ for (const folder of folders.sort((a, b) => a.localeCompare(b))) {
   const extensionId = String(manifest.id);
   const packagePath = join(packagesDir, folder, `${extensionId}.tar.gz`);
   await mkdir(dirname(packagePath), { recursive: true });
-  await $`tar -czf ${packagePath} -C ${extensionDir} .`;
+  await createStablePackage(extensionDir, manifest, packagePath);
 
   const packageStats = await stat(packagePath);
   manifest.installation = {

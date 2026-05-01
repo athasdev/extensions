@@ -21,7 +21,9 @@ jobs:
           bun-version: latest
 
       - name: Build extensions index
-        run: bun scripts/build-extensions-index.ts
+        run: |
+          bun scripts/package-extensions.ts
+          bun scripts/build-extensions-index.ts
 
       - name: Generate manifests
         run: bun scripts/generate-manifests.ts
@@ -36,6 +38,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add registry.json index.json manifests.json
+          git add registry.json index.json manifests.json extensions packages
           git commit -m "Update extensions catalog"
           git push

@@ -20,7 +20,9 @@ jobs:
         run: bun run scripts/sync-upstream-queries.ts --check
 
       - name: Validate extension manifests
-        run: bun run scripts/validate.ts
+        run: |
+          bun run scripts/package-extensions.ts
+          bun run scripts/validate.ts
 
       - name: Check manifests.json is up to date
         run: |
@@ -29,6 +31,9 @@ jobs:
 
       - name: Check registry.json and index.json are up to date
         run: bun run scripts/build-extensions-index.ts --check
+
+      - name: Check packaged extensions are up to date
+        run: git diff --exit-code extensions packages || (echo "Packaged extension artifacts are out of date. Run: bun run scripts/package-extensions.ts" && exit 1)
 
       - name: Validate grammar-sources.json
         run: |
