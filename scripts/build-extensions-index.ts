@@ -16,6 +16,12 @@ type ExternalLanguageManifest = {
   databaseProviders?: Array<{
     id: string;
   }>;
+  themes?: Array<{
+    id: string;
+  }>;
+  iconThemes?: Array<{
+    id: string;
+  }>;
 };
 
 type RegistryEntry = {
@@ -118,8 +124,15 @@ async function buildCatalog() {
 
     const languages = manifest.languages ?? [];
     const databaseProviders = manifest.databaseProviders ?? [];
-    if (languages.length === 0 && databaseProviders.length === 0) {
-      throw new Error(`No languages declared in ${manifestPath}`);
+    const themes = manifest.themes ?? [];
+    const iconThemes = manifest.iconThemes ?? [];
+    if (
+      languages.length === 0 &&
+      databaseProviders.length === 0 &&
+      themes.length === 0 &&
+      iconThemes.length === 0
+    ) {
+      throw new Error(`No extension contributions declared in ${manifestPath}`);
     }
 
     if (languages.length > 0) {

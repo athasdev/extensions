@@ -6,7 +6,7 @@
  */
 
 import { readdir, readFile, stat } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { join, relative, resolve } from "node:path";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const EXTENSIONS_DIR = join(ROOT, "extensions");
@@ -65,15 +65,59 @@ async function validateExtension(folder: string): Promise<void> {
     error(folder, "Missing or invalid 'version' field");
   }
 
+  const contributionCount =
+    (Array.isArray(manifest.languages) ? manifest.languages.length : 0) +
+    (Array.isArray(manifest.databaseProviders) ? manifest.databaseProviders.length : 0) +
+    (Array.isArray(manifest.themes) ? manifest.themes.length : 0) +
+    (Array.isArray(manifest.iconThemes) ? manifest.iconThemes.length : 0);
+
+  if (contributionCount === 0) {
+    error(folder, "Extension must declare at least one contribution");
+  }
+
   // Languages array
   const languages = manifest.languages as Array<Record<string, unknown>> | undefined;
-  if (!languages || !Array.isArray(languages) || languages.length === 0) {
-    error(folder, "Missing or empty 'languages' array");
-  } else {
+  if (languages && Array.isArray(languages)) {
     for (const lang of languages) {
       if (!lang.id) error(folder, "Language entry missing 'id'");
       if (!lang.extensions || !Array.isArray(lang.extensions)) {
         error(folder, `Language '${lang.id}' missing 'extensions' array`);
+      }
+    }
+  }
+
+  const databaseProviders =
+    manifest.databaseProviders as Array<Record<string, unknown>> | undefined;
+  if (databaseProviders && Array.isArray(databaseProviders)) {
+    for (const provider of databaseProviders) {
+      if (!provider.id) error(folder, "Database provider missing 'id'");
+      if (!provider.sidecar || typeof provider.sidecar !== "object") {
+        error(folder, `Database provider '${provider.id}' missing 'sidecar' map`);
+      }
+    }
+  }
+
+  const themes = manifest.themes as Array<Record<string, unknown>> | undefined;
+  if (themes && Array.isArray(themes)) {
+    for (const theme of themes) {
+      if (!theme.id) error(folder, "Theme contribution missing 'id'");
+      if (!theme.name) error(folder, `Theme '${theme.id}' missing 'name'`);
+      if (theme.appearance !== "dark" && theme.appearance !== "light") {
+        error(folder, `Theme '${theme.id}' has invalid 'appearance'`);
+      }
+      if (!theme.colors || typeof theme.colors !== "object") {
+        error(folder, `Theme '${theme.id}' missing 'colors' map`);
+      }
+    }
+  }
+
+  const iconThemes = manifest.iconThemes as Array<Record<string, unknown>> | undefined;
+  if (iconThemes && Array.isArray(iconThemes)) {
+    for (const iconTheme of iconThemes) {
+      if (!iconTheme.id) error(folder, "Icon theme contribution missing 'id'");
+      if (!iconTheme.name) error(folder, `Icon theme '${iconTheme.id}' missing 'name'`);
+      if (!iconTheme.iconDefinitions || typeof iconTheme.iconDefinitions !== "object") {
+        error(folder, `Icon theme '${iconTheme.id}' missing 'iconDefinitions' map`);
       }
     }
   }
@@ -154,11 +198,25 @@ async function validateManifests(): Promise<void> {
 // Run validation
 console.log("Validating extensions...\n");
 
-const entries = await readdir(EXTENSIONS_DIR, { withFileTypes: true });
-const extensionFolders = entries
-  .filter((e) => e.isDirectory() && e.name !== "packages")
-  .map((e) => e.name)
-  .sort();
+const extensionFolders: string[] = [];
+
+async function collectExtensionFolders(directory: string) {
+  const entries = await readdir(directory, { withFileTypes: true });
+
+  if (entries.some((entry) => entry.isFile() && entry.name === "extension.json")) {
+    extensionFolders.push(relative(EXTENSIONS_DIR, directory));
+    return;
+  }
+
+  await Promise.all(
+    entries
+      .filter((entry) => entry.isDirectory() && entry.name !== "packages")
+      .map((entry) => collectExtensionFolders(join(directory, entry.name))),
+  );
+}
+
+await collectExtensionFolders(EXTENSIONS_DIR);
+extensionFolders.sort((a, b) => a.localeCompare(b));
 
 console.log(`Found ${extensionFolders.length} extensions\n`);
 
