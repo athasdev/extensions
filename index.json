@@ -228,6 +228,18 @@
     "rating": 0
   },
   {
+    "id": "athas.icon-theme.market",
+    "name": "Market Icon Theme",
+    "description": "A marketplace-delivered file icon theme for Athas.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Icon Themes",
+    "icon": "https://athas.dev/extensions/icon-theme/market/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/icon-theme/market/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.java",
     "name": "Java Language Support",
     "description": "Java language support with LSP",
@@ -500,6 +512,18 @@
     "category": "Languages",
     "icon": "https://athas.dev/extensions/terraform/icon.svg",
     "manifestUrl": "https://athas.dev/extensions/terraform/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.theme.market",
+    "name": "Market Theme Pack",
+    "description": "A marketplace-delivered light and dark theme pack for Athas.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Themes",
+    "icon": "https://athas.dev/extensions/theme/market/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/theme/market/extension.json",
     "downloads": 0,
     "rating": 0
   },
