@@ -1,0 +1,71 @@
+{
+  "$schema": "https://athas.dev/schemas/extension.json",
+  "id": "athas.database.duckdb",
+  "name": "DuckDB",
+  "displayName": "DuckDB Provider",
+  "version": "1.0.0",
+  "description": "DuckDB database browser and query provider.",
+  "publisher": "Athas",
+  "categories": [
+    "Database"
+  ],
+  "activationEvents": [
+    "onDatabase:duckdb"
+  ],
+  "databaseProviders": [
+    {
+      "id": "duckdb",
+      "label": "DuckDB",
+      "isFileBased": true,
+      "fileExtensions": [
+        ".duckdb",
+        ".duck"
+      ],
+      "sidecar": {
+        "darwin-arm64": "bin/athas-db-duckdb",
+        "darwin-x64": "bin/athas-db-duckdb",
+        "linux-arm64": "bin/athas-db-duckdb",
+        "linux-x64": "bin/athas-db-duckdb",
+        "win32-x64": "bin/athas-db-duckdb.exe"
+      }
+    }
+  ],
+  "installation": {
+    "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
+    "size": 0,
+    "checksum": "",
+    "platformArch": {
+      "darwin-arm64": {
+        "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "darwin-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "linux-arm64": {
+        "downloadUrl": "https://athas.dev/extensions/database/duckdb/linux-arm64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "linux-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/duckdb/linux-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "win32-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/duckdb/win32-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      }
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/athasdev/extensions"
+  },
+  "icon": "icon.svg"
+}

@@ -1,6 +1,5 @@
-import { existsSync } from "node:fs";
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { join, relative, resolve } from "node:path";
 
 type ExternalLanguageManifest = {
   id: string;
@@ -13,6 +12,9 @@ type ExternalLanguageManifest = {
   languages?: Array<{
     id: string;
     extensions: string[];
+  }>;
+  databaseProviders?: Array<{
+    id: string;
   }>;
 };
 
@@ -42,7 +44,7 @@ type IndexEntry = {
   description: string;
   version: string;
   author: string;
-  category: "Languages" | "Themes" | "Icon Themes";
+  category: "Languages" | "Themes" | "Icon Themes" | "Databases";
   icon: string;
   manifestUrl: string;
   downloads: number;
@@ -61,6 +63,7 @@ function normalizeIndexCategory(raw?: string): IndexEntry["category"] {
 
   if (value.includes("icon") && value.includes("theme")) return "Icon Themes";
   if (value === "icon" || value === "icon theme" || value === "icon themes") return "Icon Themes";
+  if (value === "database" || value === "databases") return "Databases";
   if (value === "theme" || value === "themes") return "Themes";
   return "Languages";
 }
@@ -68,6 +71,7 @@ function normalizeIndexCategory(raw?: string): IndexEntry["category"] {
 function normalizeRegistryCategory(raw?: string): string {
   const normalized = (raw ?? "").toLowerCase();
   if (normalized.includes("icon") && normalized.includes("theme")) return "icon-theme";
+  if (normalized.includes("database")) return "database";
   if (normalized.includes("theme")) return "theme";
   return "language";
 }
@@ -77,12 +81,25 @@ function withTrailingNewline(json: unknown): string {
 }
 
 async function listExtensionFolders(): Promise<string[]> {
-  const entries = await readdir(extensionsDir, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .filter((name) => existsSync(join(extensionsDir, name, "extension.json")))
-    .sort((a, b) => a.localeCompare(b));
+  const folders: string[] = [];
+
+  async function walk(directory: string) {
+    const entries = await readdir(directory, { withFileTypes: true });
+
+    if (entries.some((entry) => entry.isFile() && entry.name === "extension.json")) {
+      folders.push(relative(extensionsDir, directory));
+      return;
+    }
+
+    await Promise.all(
+      entries
+        .filter((entry) => entry.isDirectory() && entry.name !== "packages")
+        .map((entry) => walk(join(directory, entry.name))),
+    );
+  }
+
+  await walk(extensionsDir);
+  return folders.sort((a, b) => a.localeCompare(b));
 }
 
 async function buildCatalog() {
@@ -100,32 +117,37 @@ async function buildCatalog() {
     }
 
     const languages = manifest.languages ?? [];
-    if (languages.length === 0) {
+    const databaseProviders = manifest.databaseProviders ?? [];
+    if (languages.length === 0 && databaseProviders.length === 0) {
       throw new Error(`No languages declared in ${manifestPath}`);
     }
 
-    for (const language of languages) {
-      if (languageOwners.has(language.id)) {
-        throw new Error(
-          `Duplicate language id "${language.id}" in ${manifest.id} and ${languageOwners.get(language.id)}`,
-        );
+    if (languages.length > 0) {
+      for (const language of languages) {
+        if (languageOwners.has(language.id)) {
+          throw new Error(
+            `Duplicate language id "${language.id}" in ${manifest.id} and ${languageOwners.get(language.id)}`,
+          );
+        }
+        languageOwners.set(language.id, manifest.id);
       }
-      languageOwners.set(language.id, manifest.id);
     }
 
     const rawCategory = manifest.categories?.[0];
+    const registryCategory = normalizeRegistryCategory(rawCategory);
     const displayName = manifest.displayName || manifest.name;
+    const isLanguage = registryCategory === "language";
 
     registryEntries.push({
       id: manifest.id,
       name: manifest.name,
-      displayName: displayName.toLowerCase().includes("support")
-        ? displayName
-        : `${displayName} Language Support`,
-      description: manifest.description || `${displayName} language support`,
+      displayName: isLanguage && !displayName.toLowerCase().includes("support")
+        ? `${displayName} Language Support`
+        : displayName,
+      description: manifest.description || `${displayName} ${registryCategory} extension`,
       version: manifest.version || "1.0.0",
       publisher: manifest.publisher || "Athas",
-      category: normalizeRegistryCategory(rawCategory),
+      category: registryCategory,
       icon: `${cdnBaseUrl}/${folder}/icon.svg`,
       downloads: 0,
       rating: 0,

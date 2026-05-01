@@ -1,0 +1,68 @@
+{
+  "$schema": "https://athas.dev/schemas/extension.json",
+  "id": "athas.database.postgres",
+  "name": "PostgreSQL",
+  "displayName": "PostgreSQL Provider",
+  "version": "1.0.0",
+  "description": "PostgreSQL connection, schema, and query provider.",
+  "publisher": "Athas",
+  "categories": [
+    "Database"
+  ],
+  "activationEvents": [
+    "onDatabase:postgres"
+  ],
+  "databaseProviders": [
+    {
+      "id": "postgres",
+      "label": "PostgreSQL",
+      "isFileBased": false,
+      "defaultPort": 5432,
+      "sidecar": {
+        "darwin-arm64": "bin/athas-db-postgres",
+        "darwin-x64": "bin/athas-db-postgres",
+        "linux-arm64": "bin/athas-db-postgres",
+        "linux-x64": "bin/athas-db-postgres",
+        "win32-x64": "bin/athas-db-postgres.exe"
+      }
+    }
+  ],
+  "installation": {
+    "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
+    "size": 0,
+    "checksum": "",
+    "platformArch": {
+      "darwin-arm64": {
+        "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "darwin-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "linux-arm64": {
+        "downloadUrl": "https://athas.dev/extensions/database/postgres/linux-arm64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "linux-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/postgres/linux-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      },
+      "win32-x64": {
+        "downloadUrl": "https://athas.dev/extensions/database/postgres/win32-x64.tar.gz",
+        "size": 0,
+        "checksum": ""
+      }
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/athasdev/extensions"
+  },
+  "icon": "icon.svg"
+}

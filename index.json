@@ -72,6 +72,78 @@
     "rating": 0
   },
   {
+    "id": "athas.database.duckdb",
+    "name": "DuckDB Provider",
+    "description": "DuckDB database browser and query provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/duckdb/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/duckdb/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.database.mongodb",
+    "name": "MongoDB Provider",
+    "description": "MongoDB connection, collection, and document provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/mongodb/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/mongodb/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.database.mysql",
+    "name": "MySQL Provider",
+    "description": "MySQL connection, schema, and query provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/mysql/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/mysql/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.database.postgres",
+    "name": "PostgreSQL Provider",
+    "description": "PostgreSQL connection, schema, and query provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/postgres/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/postgres/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.database.redis",
+    "name": "Redis Provider",
+    "description": "Redis connection, key scanning, and value editing provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/redis/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/redis/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
+    "id": "athas.database.sqlite",
+    "name": "SQLite Provider",
+    "description": "SQLite database browser and query provider.",
+    "version": "1.0.0",
+    "author": "Athas",
+    "category": "Databases",
+    "icon": "https://athas.dev/extensions/database/sqlite/icon.svg",
+    "manifestUrl": "https://athas.dev/extensions/database/sqlite/extension.json",
+    "downloads": 0,
+    "rating": 0
+  },
+  {
     "id": "athas.dockerfile",
     "name": "Dockerfile Language Support",
     "description": "Dockerfile language support with LSP",
