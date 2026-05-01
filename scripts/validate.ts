@@ -6,6 +6,7 @@
  */
 
 import { readdir, readFile, stat } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { join, relative, resolve } from "node:path";
 
 const ROOT = resolve(import.meta.dirname, "..");
@@ -33,6 +34,75 @@ async function fileExists(path: string): Promise<boolean> {
     return true;
   } catch {
     return false;
+  }
+}
+
+async function sha256(path: string): Promise<string> {
+  const bytes = await readFile(path);
+  return createHash("sha256").update(bytes).digest("hex");
+}
+
+async function validateInstallPackage(
+  folder: string,
+  manifest: Record<string, unknown>,
+): Promise<void> {
+  const installation = manifest.installation as
+    | { downloadUrl?: unknown; size?: unknown; checksum?: unknown }
+    | undefined;
+  const requiresPackage =
+    (Array.isArray(manifest.themes) && manifest.themes.length > 0) ||
+    (Array.isArray(manifest.iconThemes) && manifest.iconThemes.length > 0);
+
+  if (!requiresPackage) {
+    return;
+  }
+
+  if (!installation) {
+    error(folder, "Installable extension missing 'installation' metadata");
+    return;
+  }
+
+  if (typeof installation.downloadUrl !== "string" || installation.downloadUrl.length === 0) {
+    error(folder, "Installation metadata missing 'downloadUrl'");
+    return;
+  }
+
+  if (typeof installation.size !== "number" || installation.size <= 0) {
+    error(folder, "Installation metadata missing positive 'size'");
+  }
+
+  if (typeof installation.checksum !== "string" || installation.checksum.length === 0) {
+    error(folder, "Installation metadata missing 'checksum'");
+  }
+
+  const packagePathMatch = installation.downloadUrl.match(/\/extensions\/(.+)$/);
+  if (!packagePathMatch) {
+    error(folder, `Installation downloadUrl must point under /extensions/: ${installation.downloadUrl}`);
+    return;
+  }
+
+  const packagePath = join(ROOT, packagePathMatch[1]);
+  if (!(await fileExists(packagePath))) {
+    error(folder, `Installation package not found: ${packagePathMatch[1]}`);
+    return;
+  }
+
+  const packageStats = await stat(packagePath);
+  if (typeof installation.size === "number" && packageStats.size !== installation.size) {
+    error(
+      folder,
+      `Installation package size mismatch: expected ${installation.size}, got ${packageStats.size}`,
+    );
+  }
+
+  if (typeof installation.checksum === "string" && installation.checksum.length > 0) {
+    const actualChecksum = await sha256(packagePath);
+    if (actualChecksum !== installation.checksum) {
+      error(
+        folder,
+        `Installation package checksum mismatch: expected ${installation.checksum}, got ${actualChecksum}`,
+      );
+    }
   }
 }
 
@@ -121,6 +191,8 @@ async function validateExtension(folder: string): Promise<void> {
       }
     }
   }
+
+  await validateInstallPackage(folder, manifest);
 
   // Grammar capabilities
   const capabilities = manifest.capabilities as Record<string, unknown> | undefined;
