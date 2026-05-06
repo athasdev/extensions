@@ -16,12 +16,19 @@ type ExternalLanguageManifest = {
   databaseProviders?: Array<{
     id: string;
   }>;
+  agents?: Array<{
+    id: string;
+  }>;
   themes?: Array<{
     id: string;
   }>;
   iconThemes?: Array<{
     id: string;
   }>;
+  installation?: {
+    size?: number;
+    platformArch?: Record<string, { size?: number }>;
+  };
 };
 
 type RegistryEntry = {
@@ -36,6 +43,7 @@ type RegistryEntry = {
   downloads: number;
   rating: number;
   manifestUrl: string;
+  size?: number;
 };
 
 type RegistryFile = {
@@ -50,11 +58,12 @@ type IndexEntry = {
   description: string;
   version: string;
   author: string;
-  category: "Languages" | "Themes" | "Icon Themes" | "Databases";
+  category: "Languages" | "Themes" | "Icon Themes" | "Databases" | "Agents";
   icon: string;
   manifestUrl: string;
   downloads: number;
   rating: number;
+  size?: number;
 };
 
 const root = resolve(import.meta.dirname, "..");
@@ -70,6 +79,7 @@ function normalizeIndexCategory(raw?: string): IndexEntry["category"] {
   if (value.includes("icon") && value.includes("theme")) return "Icon Themes";
   if (value === "icon" || value === "icon theme" || value === "icon themes") return "Icon Themes";
   if (value === "database" || value === "databases") return "Databases";
+  if (value === "agent" || value === "agents") return "Agents";
   if (value === "theme" || value === "themes") return "Themes";
   return "Languages";
 }
@@ -78,8 +88,22 @@ function normalizeRegistryCategory(raw?: string): string {
   const normalized = (raw ?? "").toLowerCase();
   if (normalized.includes("icon") && normalized.includes("theme")) return "icon-theme";
   if (normalized.includes("database")) return "database";
+  if (normalized.includes("agent")) return "agent";
   if (normalized.includes("theme")) return "theme";
   return "language";
+}
+
+function resolveInstallSize(manifest: ExternalLanguageManifest): number | undefined {
+  const platformSizes = Object.values(manifest.installation?.platformArch ?? {})
+    .map((entry) => entry.size)
+    .filter((size): size is number => typeof size === "number" && size > 0);
+
+  if (platformSizes.length > 0) {
+    return Math.min(...platformSizes);
+  }
+
+  const size = manifest.installation?.size;
+  return typeof size === "number" && size > 0 ? size : undefined;
 }
 
 function withTrailingNewline(json: unknown): string {
@@ -124,11 +148,13 @@ async function buildCatalog() {
 
     const languages = manifest.languages ?? [];
     const databaseProviders = manifest.databaseProviders ?? [];
+    const agents = manifest.agents ?? [];
     const themes = manifest.themes ?? [];
     const iconThemes = manifest.iconThemes ?? [];
     if (
       languages.length === 0 &&
       databaseProviders.length === 0 &&
+      agents.length === 0 &&
       themes.length === 0 &&
       iconThemes.length === 0
     ) {
@@ -165,6 +191,7 @@ async function buildCatalog() {
       downloads: 0,
       rating: 0,
       manifestUrl: `${cdnBaseUrl}/${folder}/extension.json`,
+      size: resolveInstallSize(manifest),
     });
   }
 
@@ -200,6 +227,7 @@ async function buildCatalog() {
     manifestUrl: entry.manifestUrl,
     downloads: entry.downloads,
     rating: entry.rating,
+    size: entry.size,
   }));
 
   return {

@@ -1,4 +1,175 @@
 {
+  "agents/claude-code": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.claude-code",
+    "name": "Claude Code",
+    "displayName": "Claude Code",
+    "description": "Anthropic's CLI coding agent, connected through the Claude Code ACP adapter.",
+    "version": "1.0.0",
+    "publisher": "Anthropic",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "claude-code",
+        "name": "Claude Code",
+        "binaryName": "claude-code-acp",
+        "description": "Anthropic's CLI coding agent, connected through the Claude Code ACP adapter.",
+        "args": [],
+        "install": {
+          "runtime": "node",
+          "package": "@zed-industries/claude-code-acp",
+          "command": "claude-code-acp"
+        }
+      }
+    ]
+  },
+  "agents/codex-cli": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.codex-cli",
+    "name": "Codex CLI",
+    "displayName": "Codex CLI",
+    "description": "OpenAI's CLI coding agent, connected through the Codex ACP adapter.",
+    "version": "1.0.0",
+    "publisher": "OpenAI",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "codex-cli",
+        "name": "Codex CLI",
+        "binaryName": "codex-acp",
+        "description": "OpenAI Codex agent via ACP adapter.",
+        "args": [],
+        "install": {
+          "runtime": "node",
+          "package": "@zed-industries/codex-acp",
+          "command": "codex-acp"
+        }
+      }
+    ]
+  },
+  "agents/gemini-cli": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.gemini-cli",
+    "name": "Gemini CLI",
+    "displayName": "Gemini CLI",
+    "description": "Google's Gemini command-line agent with native ACP support.",
+    "version": "1.0.0",
+    "publisher": "Google",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "gemini-cli",
+        "name": "Gemini CLI",
+        "binaryName": "gemini",
+        "description": "Google's Gemini command-line agent with native ACP support.",
+        "args": [
+          "--experimental-acp"
+        ],
+        "install": {
+          "runtime": "node",
+          "package": "@google/gemini-cli",
+          "command": "gemini"
+        }
+      }
+    ]
+  },
+  "agents/kimi-cli": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.kimi-cli",
+    "name": "Kimi CLI",
+    "displayName": "Kimi CLI",
+    "description": "Moonshot's Kimi command-line agent with native ACP support.",
+    "version": "1.0.0",
+    "publisher": "Moonshot AI",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "kimi-cli",
+        "name": "Kimi CLI",
+        "binaryName": "kimi",
+        "description": "Moonshot Kimi Code CLI agent with native ACP support.",
+        "args": [
+          "acp"
+        ],
+        "install": {
+          "runtime": "binary",
+          "package": "kimi-cli",
+          "command": "kimi",
+          "downloadUrls": {
+            "darwin-arm64": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.41.0/kimi-1.41.0-aarch64-apple-darwin.tar.gz",
+            "linux-arm64": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.41.0/kimi-1.41.0-aarch64-unknown-linux-gnu.tar.gz",
+            "linux-x64": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.41.0/kimi-1.41.0-x86_64-unknown-linux-gnu.tar.gz",
+            "win32-arm64": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.41.0/kimi-1.41.0-aarch64-pc-windows-msvc.zip",
+            "win32-x64": "https://github.com/MoonshotAI/kimi-cli/releases/download/1.41.0/kimi-1.41.0-x86_64-pc-windows-msvc.zip"
+          }
+        }
+      }
+    ]
+  },
+  "agents/opencode": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.opencode",
+    "name": "OpenCode",
+    "displayName": "OpenCode",
+    "description": "Open-source terminal coding agent with native ACP support.",
+    "version": "1.0.0",
+    "publisher": "OpenCode",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "opencode",
+        "name": "OpenCode",
+        "binaryName": "opencode",
+        "description": "Open-source terminal coding agent with native ACP support.",
+        "args": [
+          "acp"
+        ],
+        "install": {
+          "runtime": "node",
+          "package": "opencode-ai",
+          "command": "opencode"
+        }
+      }
+    ]
+  },
+  "agents/qwen-code": {
+    "$schema": "https://athas.dev/schemas/extension.json",
+    "id": "athas.agent.qwen-code",
+    "name": "Qwen Code",
+    "displayName": "Qwen Code",
+    "description": "Alibaba Qwen's command-line coding agent with native ACP support.",
+    "version": "1.0.0",
+    "publisher": "Alibaba",
+    "categories": [
+      "Agent"
+    ],
+    "agents": [
+      {
+        "id": "qwen-code",
+        "name": "Qwen Code",
+        "binaryName": "qwen",
+        "description": "Alibaba Qwen Code agent with native ACP support.",
+        "args": [
+          "--acp"
+        ],
+        "install": {
+          "runtime": "node",
+          "package": "@qwen-code/qwen-code",
+          "command": "qwen"
+        }
+      }
+    ]
+  },
   "bash": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.bash",
@@ -283,33 +454,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700356,
+      "checksum": "881ec2f31222518b9fc5c94ee843a3fc10ee6ab365cb0a6c4e72e05bbd2c1816",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/duckdb/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/duckdb/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/duckdb/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700356,
+          "checksum": "881ec2f31222518b9fc5c94ee843a3fc10ee6ab365cb0a6c4e72e05bbd2c1816"
         }
       }
     },
@@ -351,33 +502,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700353,
+      "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mongodb/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mongodb/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mongodb/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700353,
+          "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a"
         }
       }
     },
@@ -419,33 +550,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700365,
+      "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mysql/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mysql/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/mysql/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700365,
+          "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c"
         }
       }
     },
@@ -487,33 +598,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700418,
+      "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/postgres/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/postgres/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/postgres/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700418,
+          "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f"
         }
       }
     },
@@ -555,33 +646,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700983,
+      "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/redis/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/redis/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/redis/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700983,
+          "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110"
         }
       }
     },
@@ -627,33 +698,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-      "size": 0,
-      "checksum": "",
+      "size": 18700817,
+      "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "darwin-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-arm64": {
-          "downloadUrl": "https://athas.dev/extensions/database/sqlite/linux-arm64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "linux-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/sqlite/linux-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
-        },
-        "win32-x64": {
-          "downloadUrl": "https://athas.dev/extensions/database/sqlite/win32-x64.tar.gz",
-          "size": 0,
-          "checksum": ""
+          "size": 18700817,
+          "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11"
         }
       }
     },
@@ -940,10 +991,10 @@
   "icon-theme/market": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.icon-theme.market",
-    "name": "Market Icons",
-    "displayName": "Market Icon Theme",
+    "name": "Athas File Icons",
+    "displayName": "Athas File Icons",
     "version": "1.0.0",
-    "description": "A marketplace-delivered file icon theme for Athas.",
+    "description": "Official file and folder icons for Athas.",
     "publisher": "Athas",
     "categories": [
       "Icon Theme"
@@ -954,8 +1005,8 @@
     "iconThemes": [
       {
         "id": "market-icons",
-        "name": "Market Icons",
-        "description": "Colorful file and folder icons from the extension marketplace.",
+        "name": "Athas File Icons",
+        "description": "Colorful file and folder icons for Athas.",
         "iconDefinitions": {
           "file": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"#64748b\" d=\"M6 2h8l4 4v16H6z\"/><path fill=\"#cbd5e1\" d=\"M14 2v5h4z\"/></svg>",
           "folder": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"#f59e0b\" d=\"M3 6h7l2 2h9v11H3z\"/></svg>",
@@ -994,8 +1045,8 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/packages/icon-theme/market/athas.icon-theme.market.tar.gz",
-      "size": 1380,
-      "checksum": "6afd2ea222577815c961d1ef473268f868bddb6d3a91890f13ec43590f9769a4"
+      "size": 1363,
+      "checksum": "c68e1d7221f1747af821d2e733eacaf68e21534f40f0960480e530298e936b54"
     },
     "license": "MIT",
     "repository": {
@@ -1873,10 +1924,10 @@
   "theme/market": {
     "$schema": "https://athas.dev/schemas/extension.json",
     "id": "athas.theme.market",
-    "name": "Market",
-    "displayName": "Market Theme Pack",
+    "name": "Athas Themes",
+    "displayName": "Athas Theme Pack",
     "version": "1.0.0",
-    "description": "A marketplace-delivered light and dark theme pack for Athas.",
+    "description": "Official light and dark editor themes for Athas.",
     "publisher": "Athas",
     "categories": [
       "Theme"
@@ -1888,8 +1939,8 @@
     "themes": [
       {
         "id": "market-light",
-        "name": "Market Light",
-        "description": "Bright marketplace theme with blue accents.",
+        "name": "Athas Light",
+        "description": "Bright Athas theme with blue accents.",
         "appearance": "light",
         "colors": {
           "primary-bg": "#fbfcff",
@@ -1955,8 +2006,8 @@
       },
       {
         "id": "market-dark",
-        "name": "Market Dark",
-        "description": "Dark marketplace theme with clear blue accents.",
+        "name": "Athas Dark",
+        "description": "Dark Athas theme with clear blue accents.",
         "appearance": "dark",
         "colors": {
           "primary-bg": "#101318",
@@ -2023,8 +2074,8 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/packages/theme/market/athas.theme.market.tar.gz",
-      "size": 1800,
-      "checksum": "e6f3f97b794fb34dcdcf2511fe7467b4140b384d0ce71b3ca9fd04e64f331f44"
+      "size": 1799,
+      "checksum": "9f4645cb2f7c1a5d372893d85c64ea6c2267cbf48977f653165254e296121c15"
     },
     "license": "MIT",
     "repository": {

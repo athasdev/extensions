@@ -1,7 +1,85 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-05-01T13:34:51.106Z",
+  "lastUpdated": "2026-05-06T19:56:58.631Z",
   "extensions": [
+    {
+      "id": "athas.agent.claude-code",
+      "name": "Claude Code",
+      "displayName": "Claude Code",
+      "description": "Anthropic's CLI coding agent, connected through the Claude Code ACP adapter.",
+      "version": "1.0.0",
+      "publisher": "Anthropic",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/claude-code/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/claude-code/extension.json"
+    },
+    {
+      "id": "athas.agent.codex-cli",
+      "name": "Codex CLI",
+      "displayName": "Codex CLI",
+      "description": "OpenAI's CLI coding agent, connected through the Codex ACP adapter.",
+      "version": "1.0.0",
+      "publisher": "OpenAI",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/codex-cli/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/codex-cli/extension.json"
+    },
+    {
+      "id": "athas.agent.gemini-cli",
+      "name": "Gemini CLI",
+      "displayName": "Gemini CLI",
+      "description": "Google's Gemini command-line agent with native ACP support.",
+      "version": "1.0.0",
+      "publisher": "Google",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/gemini-cli/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/gemini-cli/extension.json"
+    },
+    {
+      "id": "athas.agent.kimi-cli",
+      "name": "Kimi CLI",
+      "displayName": "Kimi CLI",
+      "description": "Moonshot's Kimi command-line agent with native ACP support.",
+      "version": "1.0.0",
+      "publisher": "Moonshot AI",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/kimi-cli/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/kimi-cli/extension.json"
+    },
+    {
+      "id": "athas.agent.opencode",
+      "name": "OpenCode",
+      "displayName": "OpenCode",
+      "description": "Open-source terminal coding agent with native ACP support.",
+      "version": "1.0.0",
+      "publisher": "OpenCode",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/opencode/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/opencode/extension.json"
+    },
+    {
+      "id": "athas.agent.qwen-code",
+      "name": "Qwen Code",
+      "displayName": "Qwen Code",
+      "description": "Alibaba Qwen's command-line coding agent with native ACP support.",
+      "version": "1.0.0",
+      "publisher": "Alibaba",
+      "category": "agent",
+      "icon": "https://athas.dev/extensions/agents/qwen-code/icon.svg",
+      "downloads": 0,
+      "rating": 0,
+      "manifestUrl": "https://athas.dev/extensions/agents/qwen-code/extension.json"
+    },
     {
       "id": "athas.bash",
       "name": "Bash",
@@ -91,7 +169,8 @@
       "icon": "https://athas.dev/extensions/database/duckdb/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/duckdb/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/duckdb/extension.json",
+      "size": 18700356
     },
     {
       "id": "athas.database.mongodb",
@@ -104,7 +183,8 @@
       "icon": "https://athas.dev/extensions/database/mongodb/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/mongodb/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/mongodb/extension.json",
+      "size": 18700353
     },
     {
       "id": "athas.database.mysql",
@@ -117,7 +197,8 @@
       "icon": "https://athas.dev/extensions/database/mysql/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/mysql/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/mysql/extension.json",
+      "size": 18700365
     },
     {
       "id": "athas.database.postgres",
@@ -130,7 +211,8 @@
       "icon": "https://athas.dev/extensions/database/postgres/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/postgres/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/postgres/extension.json",
+      "size": 18700418
     },
     {
       "id": "athas.database.redis",
@@ -143,7 +225,8 @@
       "icon": "https://athas.dev/extensions/database/redis/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/redis/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/redis/extension.json",
+      "size": 18700983
     },
     {
       "id": "athas.database.sqlite",
@@ -156,7 +239,8 @@
       "icon": "https://athas.dev/extensions/database/sqlite/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/database/sqlite/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/database/sqlite/extension.json",
+      "size": 18700817
     },
     {
       "id": "athas.dockerfile",
@@ -251,16 +335,17 @@
     },
     {
       "id": "athas.icon-theme.market",
-      "name": "Market Icons",
-      "displayName": "Market Icon Theme",
-      "description": "A marketplace-delivered file icon theme for Athas.",
+      "name": "Athas File Icons",
+      "displayName": "Athas File Icons",
+      "description": "Official file and folder icons for Athas.",
       "version": "1.0.0",
       "publisher": "Athas",
       "category": "icon-theme",
       "icon": "https://athas.dev/extensions/icon-theme/market/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/icon-theme/market/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/icon-theme/market/extension.json",
+      "size": 1363
     },
     {
       "id": "athas.java",
@@ -563,16 +648,17 @@
     },
     {
       "id": "athas.theme.market",
-      "name": "Market",
-      "displayName": "Market Theme Pack",
-      "description": "A marketplace-delivered light and dark theme pack for Athas.",
+      "name": "Athas Themes",
+      "displayName": "Athas Theme Pack",
+      "description": "Official light and dark editor themes for Athas.",
       "version": "1.0.0",
       "publisher": "Athas",
       "category": "theme",
       "icon": "https://athas.dev/extensions/theme/market/icon.svg",
       "downloads": 0,
       "rating": 0,
-      "manifestUrl": "https://athas.dev/extensions/theme/market/extension.json"
+      "manifestUrl": "https://athas.dev/extensions/theme/market/extension.json",
+      "size": 1799
     },
     {
       "id": "athas.tlaplus",

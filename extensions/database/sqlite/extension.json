@@ -33,33 +33,13 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-    "size": 0,
-    "checksum": "",
+    "size": 18700817,
+    "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11",
     "platformArch": {
       "darwin-arm64": {
         "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "darwin-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-arm64": {
-        "downloadUrl": "https://athas.dev/extensions/database/sqlite/linux-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/sqlite/linux-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "win32-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/sqlite/win32-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
+        "size": 18700817,
+        "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11"
       }
     }
   },

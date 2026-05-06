@@ -1,10 +1,10 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
   "id": "athas.theme.market",
-  "name": "Market",
-  "displayName": "Market Theme Pack",
+  "name": "Athas Themes",
+  "displayName": "Athas Theme Pack",
   "version": "1.0.0",
-  "description": "A marketplace-delivered light and dark theme pack for Athas.",
+  "description": "Official light and dark editor themes for Athas.",
   "publisher": "Athas",
   "categories": [
     "Theme"
@@ -16,8 +16,8 @@
   "themes": [
     {
       "id": "market-light",
-      "name": "Market Light",
-      "description": "Bright marketplace theme with blue accents.",
+      "name": "Athas Light",
+      "description": "Bright Athas theme with blue accents.",
       "appearance": "light",
       "colors": {
         "primary-bg": "#fbfcff",
@@ -83,8 +83,8 @@
     },
     {
       "id": "market-dark",
-      "name": "Market Dark",
-      "description": "Dark marketplace theme with clear blue accents.",
+      "name": "Athas Dark",
+      "description": "Dark Athas theme with clear blue accents.",
       "appearance": "dark",
       "colors": {
         "primary-bg": "#101318",
@@ -151,8 +151,8 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/packages/theme/market/athas.theme.market.tar.gz",
-    "size": 1800,
-    "checksum": "e6f3f97b794fb34dcdcf2511fe7467b4140b384d0ce71b3ca9fd04e64f331f44"
+    "size": 1799,
+    "checksum": "9f4645cb2f7c1a5d372893d85c64ea6c2267cbf48977f653165254e296121c15"
   },
   "license": "MIT",
   "repository": {

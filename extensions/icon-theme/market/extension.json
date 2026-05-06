@@ -1,10 +1,10 @@
 {
   "$schema": "https://athas.dev/schemas/extension.json",
   "id": "athas.icon-theme.market",
-  "name": "Market Icons",
-  "displayName": "Market Icon Theme",
+  "name": "Athas File Icons",
+  "displayName": "Athas File Icons",
   "version": "1.0.0",
-  "description": "A marketplace-delivered file icon theme for Athas.",
+  "description": "Official file and folder icons for Athas.",
   "publisher": "Athas",
   "categories": [
     "Icon Theme"
@@ -15,8 +15,8 @@
   "iconThemes": [
     {
       "id": "market-icons",
-      "name": "Market Icons",
-      "description": "Colorful file and folder icons from the extension marketplace.",
+      "name": "Athas File Icons",
+      "description": "Colorful file and folder icons for Athas.",
       "iconDefinitions": {
         "file": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"#64748b\" d=\"M6 2h8l4 4v16H6z\"/><path fill=\"#cbd5e1\" d=\"M14 2v5h4z\"/></svg>",
         "folder": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"#f59e0b\" d=\"M3 6h7l2 2h9v11H3z\"/></svg>",
@@ -55,8 +55,8 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/packages/icon-theme/market/athas.icon-theme.market.tar.gz",
-    "size": 1380,
-    "checksum": "6afd2ea222577815c961d1ef473268f868bddb6d3a91890f13ec43590f9769a4"
+    "size": 1363,
+    "checksum": "c68e1d7221f1747af821d2e733eacaf68e21534f40f0960480e530298e936b54"
   },
   "license": "MIT",
   "repository": {

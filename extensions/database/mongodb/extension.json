@@ -29,33 +29,13 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-    "size": 0,
-    "checksum": "",
+    "size": 18700353,
+    "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a",
     "platformArch": {
       "darwin-arm64": {
         "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "darwin-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-arm64": {
-        "downloadUrl": "https://athas.dev/extensions/database/mongodb/linux-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/mongodb/linux-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "win32-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/mongodb/win32-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
+        "size": 18700353,
+        "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a"
       }
     }
   },

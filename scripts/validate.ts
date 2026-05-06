@@ -47,9 +47,15 @@ async function validateInstallPackage(
   manifest: Record<string, unknown>,
 ): Promise<void> {
   const installation = manifest.installation as
-    | { downloadUrl?: unknown; size?: unknown; checksum?: unknown }
+    | {
+        downloadUrl?: unknown;
+        size?: unknown;
+        checksum?: unknown;
+        platformArch?: unknown;
+      }
     | undefined;
   const requiresPackage =
+    (Array.isArray(manifest.databaseProviders) && manifest.databaseProviders.length > 0) ||
     (Array.isArray(manifest.themes) && manifest.themes.length > 0) ||
     (Array.isArray(manifest.iconThemes) && manifest.iconThemes.length > 0);
 
@@ -62,22 +68,56 @@ async function validateInstallPackage(
     return;
   }
 
-  if (typeof installation.downloadUrl !== "string" || installation.downloadUrl.length === 0) {
-    error(folder, "Installation metadata missing 'downloadUrl'");
+  await validatePackageEntry(folder, "Installation metadata", installation);
+
+  if (installation.platformArch === undefined) {
     return;
   }
 
-  if (typeof installation.size !== "number" || installation.size <= 0) {
-    error(folder, "Installation metadata missing positive 'size'");
+  if (
+    typeof installation.platformArch !== "object" ||
+    installation.platformArch === null ||
+    Array.isArray(installation.platformArch)
+  ) {
+    error(folder, "Installation metadata 'platformArch' must be an object");
+    return;
   }
 
-  if (typeof installation.checksum !== "string" || installation.checksum.length === 0) {
-    error(folder, "Installation metadata missing 'checksum'");
+  for (const [platformArch, packageEntry] of Object.entries(installation.platformArch)) {
+    if (typeof packageEntry !== "object" || packageEntry === null || Array.isArray(packageEntry)) {
+      error(folder, `Installation package for ${platformArch} must be an object`);
+      continue;
+    }
+
+    await validatePackageEntry(
+      folder,
+      `Installation package for ${platformArch}`,
+      packageEntry as { downloadUrl?: unknown; size?: unknown; checksum?: unknown },
+    );
+  }
+}
+
+async function validatePackageEntry(
+  folder: string,
+  label: string,
+  packageEntry: { downloadUrl?: unknown; size?: unknown; checksum?: unknown },
+): Promise<void> {
+  if (typeof packageEntry.downloadUrl !== "string" || packageEntry.downloadUrl.length === 0) {
+    error(folder, `${label} missing 'downloadUrl'`);
+    return;
   }
 
-  const packagePathMatch = installation.downloadUrl.match(/\/extensions\/(.+)$/);
+  if (typeof packageEntry.size !== "number" || packageEntry.size <= 0) {
+    error(folder, `${label} missing positive 'size'`);
+  }
+
+  if (typeof packageEntry.checksum !== "string" || packageEntry.checksum.length === 0) {
+    error(folder, `${label} missing 'checksum'`);
+  }
+
+  const packagePathMatch = packageEntry.downloadUrl.match(/\/extensions\/(.+)$/);
   if (!packagePathMatch) {
-    error(folder, `Installation downloadUrl must point under /extensions/: ${installation.downloadUrl}`);
+    error(folder, `${label} downloadUrl must point under /extensions/: ${packageEntry.downloadUrl}`);
     return;
   }
 
@@ -88,19 +128,19 @@ async function validateInstallPackage(
   }
 
   const packageStats = await stat(packagePath);
-  if (typeof installation.size === "number" && packageStats.size !== installation.size) {
+  if (typeof packageEntry.size === "number" && packageStats.size !== packageEntry.size) {
     error(
       folder,
-      `Installation package size mismatch: expected ${installation.size}, got ${packageStats.size}`,
+      `${label} size mismatch: expected ${packageEntry.size}, got ${packageStats.size}`,
     );
   }
 
-  if (typeof installation.checksum === "string" && installation.checksum.length > 0) {
+  if (typeof packageEntry.checksum === "string" && packageEntry.checksum.length > 0) {
     const actualChecksum = await sha256(packagePath);
-    if (actualChecksum !== installation.checksum) {
+    if (actualChecksum !== packageEntry.checksum) {
       error(
         folder,
-        `Installation package checksum mismatch: expected ${installation.checksum}, got ${actualChecksum}`,
+        `${label} checksum mismatch: expected ${packageEntry.checksum}, got ${actualChecksum}`,
       );
     }
   }
@@ -138,6 +178,7 @@ async function validateExtension(folder: string): Promise<void> {
   const contributionCount =
     (Array.isArray(manifest.languages) ? manifest.languages.length : 0) +
     (Array.isArray(manifest.databaseProviders) ? manifest.databaseProviders.length : 0) +
+    (Array.isArray(manifest.agents) ? manifest.agents.length : 0) +
     (Array.isArray(manifest.themes) ? manifest.themes.length : 0) +
     (Array.isArray(manifest.iconThemes) ? manifest.iconThemes.length : 0);
 
@@ -163,6 +204,22 @@ async function validateExtension(folder: string): Promise<void> {
       if (!provider.id) error(folder, "Database provider missing 'id'");
       if (!provider.sidecar || typeof provider.sidecar !== "object") {
         error(folder, `Database provider '${provider.id}' missing 'sidecar' map`);
+      }
+    }
+  }
+
+  const agents = manifest.agents as Array<Record<string, unknown>> | undefined;
+  if (agents && Array.isArray(agents)) {
+    for (const agent of agents) {
+      if (!agent.id) error(folder, "Agent contribution missing 'id'");
+      if (!agent.name) error(folder, `Agent '${agent.id}' missing 'name'`);
+      if (!agent.binaryName) error(folder, `Agent '${agent.id}' missing 'binaryName'`);
+
+      const install = agent.install as Record<string, unknown> | undefined;
+      if (install) {
+        if (!install.runtime) error(folder, `Agent '${agent.id}' install missing 'runtime'`);
+        if (!install.package) error(folder, `Agent '${agent.id}' install missing 'package'`);
+        if (!install.command) error(folder, `Agent '${agent.id}' install missing 'command'`);
       }
     }
   }

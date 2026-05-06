@@ -29,33 +29,13 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-    "size": 0,
-    "checksum": "",
+    "size": 18700983,
+    "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110",
     "platformArch": {
       "darwin-arm64": {
         "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "darwin-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-arm64": {
-        "downloadUrl": "https://athas.dev/extensions/database/redis/linux-arm64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "linux-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/redis/linux-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
-      },
-      "win32-x64": {
-        "downloadUrl": "https://athas.dev/extensions/database/redis/win32-x64.tar.gz",
-        "size": 0,
-        "checksum": ""
+        "size": 18700983,
+        "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110"
       }
     }
   },
