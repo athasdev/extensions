@@ -29,13 +29,13 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-    "size": 18700418,
-    "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f",
+    "size": 1759311,
+    "checksum": "5644ddceae24700886dfdec77ad69e81d3149617922df373781f1bf0b5f3145c",
     "platformArch": {
       "darwin-arm64": {
         "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-        "size": 18700418,
-        "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f"
+        "size": 1759311,
+        "checksum": "5644ddceae24700886dfdec77ad69e81d3149617922df373781f1bf0b5f3145c"
       }
     }
   },

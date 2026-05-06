@@ -454,13 +454,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
-      "size": 18700356,
-      "checksum": "881ec2f31222518b9fc5c94ee843a3fc10ee6ab365cb0a6c4e72e05bbd2c1816",
+      "size": 12337474,
+      "checksum": "68e4ed8f7a23cb5b723d5657dbdb0e2935d4a15b089bdb48c59844304db4071f",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/duckdb/darwin-arm64.tar.gz",
-          "size": 18700356,
-          "checksum": "881ec2f31222518b9fc5c94ee843a3fc10ee6ab365cb0a6c4e72e05bbd2c1816"
+          "size": 12337474,
+          "checksum": "68e4ed8f7a23cb5b723d5657dbdb0e2935d4a15b089bdb48c59844304db4071f"
         }
       }
     },
@@ -502,13 +502,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-      "size": 18700353,
-      "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a",
+      "size": 3501533,
+      "checksum": "be8850f287cc83fd4da733e551019e5ffbd1b646d23d16198383451f3a888432",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/mongodb/darwin-arm64.tar.gz",
-          "size": 18700353,
-          "checksum": "233bd0ba9a9f0f4e7c7ea3e6fc9dfead92f3ba49d5eb0e96f5e757eb8e024d0a"
+          "size": 3501533,
+          "checksum": "be8850f287cc83fd4da733e551019e5ffbd1b646d23d16198383451f3a888432"
         }
       }
     },
@@ -550,13 +550,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-      "size": 18700365,
-      "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c",
+      "size": 1602099,
+      "checksum": "c0d78f778da855216e2ea6c20f4fcb4fb33093a77b456017f072f69cf93998f4",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-          "size": 18700365,
-          "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c"
+          "size": 1602099,
+          "checksum": "c0d78f778da855216e2ea6c20f4fcb4fb33093a77b456017f072f69cf93998f4"
         }
       }
     },
@@ -598,13 +598,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-      "size": 18700418,
-      "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f",
+      "size": 1759311,
+      "checksum": "5644ddceae24700886dfdec77ad69e81d3149617922df373781f1bf0b5f3145c",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/postgres/darwin-arm64.tar.gz",
-          "size": 18700418,
-          "checksum": "8a0fc3643c975cbb1572f13d48c82c690136a268c05639989dc38ad07a3cd67f"
+          "size": 1759311,
+          "checksum": "5644ddceae24700886dfdec77ad69e81d3149617922df373781f1bf0b5f3145c"
         }
       }
     },
@@ -646,13 +646,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-      "size": 18700983,
-      "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110",
+      "size": 746802,
+      "checksum": "5e1e770dd25b49651453e4e022cab8e403849b9b68e793df3a7ddb66a98415f5",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/redis/darwin-arm64.tar.gz",
-          "size": 18700983,
-          "checksum": "6d91d34b62e5d5e48218be848bedf81efed4f304ae13d8192ec7f7accd552110"
+          "size": 746802,
+          "checksum": "5e1e770dd25b49651453e4e022cab8e403849b9b68e793df3a7ddb66a98415f5"
         }
       }
     },
@@ -698,13 +698,13 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-      "size": 18700817,
-      "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11",
+      "size": 1238311,
+      "checksum": "16b0b2618818afc091471e97ee9ba7dc25eee69f2e663155f2127fb54e4177b0",
       "platformArch": {
         "darwin-arm64": {
           "downloadUrl": "https://athas.dev/extensions/database/sqlite/darwin-arm64.tar.gz",
-          "size": 18700817,
-          "checksum": "06981ec8b8de64c72b4fd382726e63aa7f7d7a8a6c0b6b99604b3d9da56aca11"
+          "size": 1238311,
+          "checksum": "16b0b2618818afc091471e97ee9ba7dc25eee69f2e663155f2127fb54e4177b0"
         }
       }
     },

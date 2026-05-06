@@ -29,13 +29,13 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-    "size": 18700365,
-    "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c",
+    "size": 1602099,
+    "checksum": "c0d78f778da855216e2ea6c20f4fcb4fb33093a77b456017f072f69cf93998f4",
     "platformArch": {
       "darwin-arm64": {
         "downloadUrl": "https://athas.dev/extensions/database/mysql/darwin-arm64.tar.gz",
-        "size": 18700365,
-        "checksum": "401a33b5dc041e357bd2f406b4dc518a79a677078da377c9b673735d3db5bb9c"
+        "size": 1602099,
+        "checksum": "c0d78f778da855216e2ea6c20f4fcb4fb33093a77b456017f072f69cf93998f4"
       }
     }
   },

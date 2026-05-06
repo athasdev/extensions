@@ -154,7 +154,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/duckdb/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700356
+    "size": 12337474
   },
   {
     "id": "athas.database.mongodb",
@@ -167,7 +167,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/mongodb/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700353
+    "size": 3501533
   },
   {
     "id": "athas.database.mysql",
@@ -180,7 +180,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/mysql/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700365
+    "size": 1602099
   },
   {
     "id": "athas.database.postgres",
@@ -193,7 +193,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/postgres/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700418
+    "size": 1759311
   },
   {
     "id": "athas.database.redis",
@@ -206,7 +206,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/redis/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700983
+    "size": 746802
   },
   {
     "id": "athas.database.sqlite",
@@ -219,7 +219,7 @@
     "manifestUrl": "https://athas.dev/extensions/database/sqlite/extension.json",
     "downloads": 0,
     "rating": 0,
-    "size": 18700817
+    "size": 1238311
   },
   {
     "id": "athas.dockerfile",

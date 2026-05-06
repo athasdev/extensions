@@ -8,6 +8,7 @@ import { basename, dirname, join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const extensionsDir = join(root, "extensions");
+const athasRoot = resolve(root, "..", "athas");
 const cdnBaseUrl = process.env.EXTENSIONS_CDN_BASE_URL || "https://athas.dev/extensions";
 
 function argValue(name: string) {
@@ -72,14 +73,19 @@ async function createPackage(params: {
 }
 
 const platformArch = argValue("--platform") || process.env.PLATFORM_ARCH || currentPlatformArch();
+const shouldBuild = process.argv.includes("--build") || process.env.BUILD_DATABASE_SIDECARS === "1";
 const binDir = resolve(
-  argValue("--bin-dir") ||
-    process.env.ATHAS_DATABASE_SIDECAR_BIN_DIR ||
-    "../athas/crates/database/target/release",
+  argValue("--bin-dir") || process.env.ATHAS_DATABASE_SIDECAR_BIN_DIR || "../athas/target/release",
 );
 
 const databaseFolders = ["duckdb", "mongodb", "mysql", "postgres", "redis", "sqlite"];
 let packagedCount = 0;
+
+async function buildSidecar(folder: string, binaryName: string) {
+  await $`cargo build -p athas-database --release --no-default-features --features ${folder} --bin ${binaryName}`.cwd(
+    athasRoot,
+  );
+}
 
 for (const folder of databaseFolders) {
   const extensionDir = join(extensionsDir, "database", folder);
@@ -94,9 +100,13 @@ for (const folder of databaseFolders) {
   }
 
   const binaryPath = join(binDir, basename(sidecarPath));
+  if (shouldBuild) {
+    await buildSidecar(folder, basename(sidecarPath));
+  }
+
   if (!(await stat(binaryPath).then((value) => value.isFile()).catch(() => false))) {
     throw new Error(
-      `Missing database sidecar binary for ${folder}: ${binaryPath}. Build them from the Athas repo with: cargo build -p athas-database --release --no-default-features --features all-providers --bins`,
+      `Missing database sidecar binary for ${folder}: ${binaryPath}. Run this script with --build, or build it from the Athas repo with: cargo build -p athas-database --release --no-default-features --features ${folder} --bin ${basename(sidecarPath)}`,
     );
   }
 
