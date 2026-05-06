@@ -26,6 +26,14 @@
       "name": "zls",
       "runtime": "binary",
       "args": []
+    },
+    "formatter": {
+      "name": "zig",
+      "runtime": "binary",
+      "args": [
+        "fmt",
+        "--stdin"
+      ]
     }
   }
 }

@@ -94,11 +94,14 @@ scripts/                # Validation and generation scripts
   "name": "pyright",
   "runtime": "bun",
   "package": "pyright",
+  "packages": ["optional-peer-dependency"],
   "args": ["--stdio"]
 }
 ```
 
-Supported runtimes: `bun`, `python`, `go`, `binary`
+Use `packages` for runtime-managed companion packages that must be installed beside the primary package, such as TypeScript SDK packages required by JavaScript-based language servers.
+
+Supported runtimes: `bun`, `node`, `python`, `go`, `rust`, `ruby`, `binary`
 
 #### Formatter
 

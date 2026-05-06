@@ -1062,9 +1062,12 @@
     ],
     "capabilities": {
       "lsp": {
-        "name": "typescript-language-server",
+        "name": "vtsls",
         "runtime": "bun",
-        "package": "typescript-language-server",
+        "package": "@vtsls/language-server",
+        "packages": [
+          "typescript"
+        ],
         "args": [
           "--stdio"
         ]
@@ -2123,9 +2126,12 @@
     ],
     "capabilities": {
       "lsp": {
-        "name": "typescript-language-server",
+        "name": "vtsls",
         "runtime": "bun",
-        "package": "typescript-language-server",
+        "package": "@vtsls/language-server",
+        "packages": [
+          "typescript"
+        ],
         "args": [
           "--stdio"
         ]
@@ -2180,9 +2186,12 @@
     ],
     "capabilities": {
       "lsp": {
-        "name": "typescript-language-server",
+        "name": "vtsls",
         "runtime": "bun",
-        "package": "typescript-language-server",
+        "package": "@vtsls/language-server",
+        "packages": [
+          "typescript"
+        ],
         "args": [
           "--stdio"
         ]
@@ -2374,6 +2383,14 @@
         "name": "zls",
         "runtime": "binary",
         "args": []
+      },
+      "formatter": {
+        "name": "zig",
+        "runtime": "binary",
+        "args": [
+          "fmt",
+          "--stdin"
+        ]
       }
     }
   }
