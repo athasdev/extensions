@@ -95,7 +95,9 @@ for (const folder of databaseFolders) {
 
   const binaryPath = join(binDir, basename(sidecarPath));
   if (!(await stat(binaryPath).then((value) => value.isFile()).catch(() => false))) {
-    throw new Error(`Missing database sidecar binary for ${folder}: ${binaryPath}`);
+    throw new Error(
+      `Missing database sidecar binary for ${folder}: ${binaryPath}. Build them from the Athas repo with: cargo build -p athas-database --release --no-default-features --features all-providers --bins`,
+    );
   }
 
   const packagePath = join(root, "database", folder, `${platformArch}.tar.gz`);
