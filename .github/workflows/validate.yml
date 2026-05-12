@@ -33,7 +33,11 @@ jobs:
         run: bun run scripts/build-extensions-index.ts --check
 
       - name: Check packaged extensions are up to date
-        run: git diff --exit-code extensions packages || (echo "Packaged extension artifacts are out of date. Run: bun run scripts/package-extensions.ts" && exit 1)
+        run: |
+          git diff --exit-code extensions packages || (
+            echo "Packaged extension artifacts are out of date. Run: bun run scripts/package-extensions.ts"
+            exit 1
+          )
 
       - name: Validate grammar-sources.json
         run: |

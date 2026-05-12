@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-05-06T22:14:28.225Z",
+  "lastUpdated": "2026-05-12T12:37:43.520Z",
   "extensions": [
     {
       "id": "athas.agent.claude-code",
@@ -345,7 +345,7 @@
       "downloads": 0,
       "rating": 0,
       "manifestUrl": "https://athas.dev/extensions/icon-theme/market/extension.json",
-      "size": 1363
+      "size": 1304
     },
     {
       "id": "athas.java",
@@ -658,7 +658,7 @@
       "downloads": 0,
       "rating": 0,
       "manifestUrl": "https://athas.dev/extensions/theme/market/extension.json",
-      "size": 1799
+      "size": 1734
     },
     {
       "id": "athas.tlaplus",

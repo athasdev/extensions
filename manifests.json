@@ -1045,8 +1045,8 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/packages/icon-theme/market/athas.icon-theme.market.tar.gz",
-      "size": 1363,
-      "checksum": "c68e1d7221f1747af821d2e733eacaf68e21534f40f0960480e530298e936b54"
+      "size": 1304,
+      "checksum": "0dc79d11f44cb643841a936a2233ccd7d672b4379fadda11cdad0ad541042de7"
     },
     "license": "MIT",
     "repository": {
@@ -2074,8 +2074,8 @@
     ],
     "installation": {
       "downloadUrl": "https://athas.dev/extensions/packages/theme/market/athas.theme.market.tar.gz",
-      "size": 1799,
-      "checksum": "9f4645cb2f7c1a5d372893d85c64ea6c2267cbf48977f653165254e296121c15"
+      "size": 1734,
+      "checksum": "4c6624f2d9364beb4687ea5d72f7e019676cd71fae542a4bd3be02adcfcfdc37"
     },
     "license": "MIT",
     "repository": {

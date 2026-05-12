@@ -85,7 +85,9 @@ async function createPackage(params: {
 
     await mkdir(dirname(params.packagePath), { recursive: true });
     await $`find ${tempDir} -exec touch -t 202001010000 {} +`;
-    await $`tar --no-xattrs -czf ${params.packagePath} -C ${tempDir} .`;
+    await $`find . -type f -print | LC_ALL=C sort | tar --no-xattrs --owner=0 --group=0 --numeric-owner -cf - -C ${tempDir} -T - | gzip -n > ${params.packagePath}`.cwd(
+      tempDir,
+    );
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }

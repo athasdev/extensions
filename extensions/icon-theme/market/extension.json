@@ -55,8 +55,8 @@
   ],
   "installation": {
     "downloadUrl": "https://athas.dev/extensions/packages/icon-theme/market/athas.icon-theme.market.tar.gz",
-    "size": 1363,
-    "checksum": "c68e1d7221f1747af821d2e733eacaf68e21534f40f0960480e530298e936b54"
+    "size": 1304,
+    "checksum": "0dc79d11f44cb643841a936a2233ccd7d672b4379fadda11cdad0ad541042de7"
   },
   "license": "MIT",
   "repository": {

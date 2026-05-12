@@ -66,7 +66,9 @@ async function createStablePackage(extensionDir: string, manifest: Record<string
     await writeFile(join(tempDir, "extension.json"), `${JSON.stringify(packagedManifest, null, 2)}\n`);
 
     await $`find ${tempDir} -exec touch -t 202001010000 {} +`;
-    await $`tar --no-xattrs -czf ${packagePath} -C ${tempDir} .`;
+    await $`find . -type f -print | LC_ALL=C sort | tar --no-xattrs --owner=0 --group=0 --numeric-owner -cf - -C ${tempDir} -T - | gzip -n > ${packagePath}`.cwd(
+      tempDir,
+    );
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
