@@ -43,6 +43,25 @@ function hasCompletePackageInfo(value: unknown): value is Record<string, unknown
   );
 }
 
+function getContributionArray(
+  manifest: Record<string, unknown>,
+  key: string,
+): Array<Record<string, unknown>> {
+  const contributes =
+    typeof manifest.contributes === "object" &&
+    manifest.contributes !== null &&
+    !Array.isArray(manifest.contributes)
+      ? (manifest.contributes as Record<string, unknown>)
+      : {};
+
+  return [
+    ...(Array.isArray(manifest[key]) ? (manifest[key] as Array<Record<string, unknown>>) : []),
+    ...(Array.isArray(contributes[key])
+      ? (contributes[key] as Array<Record<string, unknown>>)
+      : []),
+  ];
+}
+
 async function createPackage(params: {
   extensionDir: string;
   manifest: Record<string, unknown>;
@@ -91,7 +110,7 @@ for (const folder of databaseFolders) {
   const extensionDir = join(extensionsDir, "database", folder);
   const manifestPath = join(extensionDir, "extension.json");
   const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
-  const provider = (manifest.databaseProviders as Array<Record<string, unknown>> | undefined)?.[0];
+  const provider = getContributionArray(manifest, "databaseProviders")[0];
   const sidecar = provider?.sidecar as Record<string, string> | undefined;
   const sidecarPath = sidecar?.[platformArch];
 

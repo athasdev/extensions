@@ -11,6 +11,19 @@ const extensionsDir = join(root, "extensions");
 const packagesDir = join(root, "packages");
 const cdnBaseUrl = process.env.EXTENSIONS_CDN_BASE_URL || "https://athas.dev/extensions";
 
+function contributionCount(manifest: Record<string, unknown>, key: string): number {
+  const contributes =
+    typeof manifest.contributes === "object" &&
+    manifest.contributes !== null &&
+    !Array.isArray(manifest.contributes)
+      ? (manifest.contributes as Record<string, unknown>)
+      : {};
+
+  const topLevel = Array.isArray(manifest[key]) ? manifest[key].length : 0;
+  const contributed = Array.isArray(contributes[key]) ? contributes[key].length : 0;
+  return topLevel + contributed;
+}
+
 async function collectExtensionFolders(directory: string, folders: string[] = []) {
   const entries = await readdir(directory, { withFileTypes: true });
 
@@ -29,12 +42,10 @@ async function collectExtensionFolders(directory: string, folders: string[] = []
 }
 
 function shouldPackage(manifest: Record<string, unknown>) {
-  const hasNativeSidecar =
-    Array.isArray(manifest.databaseProviders) && manifest.databaseProviders.length > 0;
-  const isLanguage = Array.isArray(manifest.languages) && manifest.languages.length > 0;
+  const hasNativeSidecar = contributionCount(manifest, "databaseProviders") > 0;
+  const isLanguage = contributionCount(manifest, "languages") > 0;
   const isPureAssetExtension =
-    (Array.isArray(manifest.themes) && manifest.themes.length > 0) ||
-    (Array.isArray(manifest.iconThemes) && manifest.iconThemes.length > 0);
+    contributionCount(manifest, "themes") > 0 || contributionCount(manifest, "iconThemes") > 0;
 
   return isPureAssetExtension && !hasNativeSidecar && !isLanguage;
 }

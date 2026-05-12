@@ -28,6 +28,25 @@ function warn(extension: string, message: string) {
   warnings.push({ extension, message });
 }
 
+function getContributionArray(
+  manifest: Record<string, unknown>,
+  key: string,
+): Array<Record<string, unknown>> {
+  const contributes =
+    typeof manifest.contributes === "object" &&
+    manifest.contributes !== null &&
+    !Array.isArray(manifest.contributes)
+      ? (manifest.contributes as Record<string, unknown>)
+      : {};
+
+  return [
+    ...(Array.isArray(manifest[key]) ? (manifest[key] as Array<Record<string, unknown>>) : []),
+    ...(Array.isArray(contributes[key])
+      ? (contributes[key] as Array<Record<string, unknown>>)
+      : []),
+  ];
+}
+
 async function fileExists(path: string): Promise<boolean> {
   try {
     await stat(path);
@@ -55,9 +74,9 @@ async function validateInstallPackage(
       }
     | undefined;
   const requiresPackage =
-    (Array.isArray(manifest.databaseProviders) && manifest.databaseProviders.length > 0) ||
-    (Array.isArray(manifest.themes) && manifest.themes.length > 0) ||
-    (Array.isArray(manifest.iconThemes) && manifest.iconThemes.length > 0);
+    getContributionArray(manifest, "databaseProviders").length > 0 ||
+    getContributionArray(manifest, "themes").length > 0 ||
+    getContributionArray(manifest, "iconThemes").length > 0;
 
   if (!requiresPackage) {
     return;
@@ -176,30 +195,36 @@ async function validateExtension(folder: string): Promise<void> {
   }
 
   const contributionCount =
-    (Array.isArray(manifest.languages) ? manifest.languages.length : 0) +
-    (Array.isArray(manifest.databaseProviders) ? manifest.databaseProviders.length : 0) +
-    (Array.isArray(manifest.agents) ? manifest.agents.length : 0) +
-    (Array.isArray(manifest.themes) ? manifest.themes.length : 0) +
-    (Array.isArray(manifest.iconThemes) ? manifest.iconThemes.length : 0);
+    getContributionArray(manifest, "languages").length +
+    getContributionArray(manifest, "databaseProviders").length +
+    getContributionArray(manifest, "agents").length +
+    getContributionArray(manifest, "themes").length +
+    getContributionArray(manifest, "iconThemes").length;
 
   if (contributionCount === 0) {
     error(folder, "Extension must declare at least one contribution");
   }
 
   // Languages array
-  const languages = manifest.languages as Array<Record<string, unknown>> | undefined;
-  if (languages && Array.isArray(languages)) {
+  const languages = getContributionArray(manifest, "languages");
+  if (languages.length > 0) {
     for (const lang of languages) {
       if (!lang.id) error(folder, "Language entry missing 'id'");
-      if (!lang.extensions || !Array.isArray(lang.extensions)) {
-        error(folder, `Language '${lang.id}' missing 'extensions' array`);
+      const hasExtensionMatcher =
+        Array.isArray(lang.extensions) ||
+        Array.isArray(lang.filenames) ||
+        Array.isArray(lang.filenamePatterns);
+      if (!hasExtensionMatcher) {
+        error(
+          folder,
+          `Language '${lang.id}' missing one of 'extensions', 'filenames', or 'filenamePatterns'`,
+        );
       }
     }
   }
 
-  const databaseProviders =
-    manifest.databaseProviders as Array<Record<string, unknown>> | undefined;
-  if (databaseProviders && Array.isArray(databaseProviders)) {
+  const databaseProviders = getContributionArray(manifest, "databaseProviders");
+  if (databaseProviders.length > 0) {
     for (const provider of databaseProviders) {
       if (!provider.id) error(folder, "Database provider missing 'id'");
       if (!provider.sidecar || typeof provider.sidecar !== "object") {
@@ -208,8 +233,8 @@ async function validateExtension(folder: string): Promise<void> {
     }
   }
 
-  const agents = manifest.agents as Array<Record<string, unknown>> | undefined;
-  if (agents && Array.isArray(agents)) {
+  const agents = getContributionArray(manifest, "agents");
+  if (agents.length > 0) {
     for (const agent of agents) {
       if (!agent.id) error(folder, "Agent contribution missing 'id'");
       if (!agent.name) error(folder, `Agent '${agent.id}' missing 'name'`);
@@ -224,8 +249,8 @@ async function validateExtension(folder: string): Promise<void> {
     }
   }
 
-  const themes = manifest.themes as Array<Record<string, unknown>> | undefined;
-  if (themes && Array.isArray(themes)) {
+  const themes = getContributionArray(manifest, "themes");
+  if (themes.length > 0) {
     for (const theme of themes) {
       if (!theme.id) error(folder, "Theme contribution missing 'id'");
       if (!theme.name) error(folder, `Theme '${theme.id}' missing 'name'`);
@@ -238,8 +263,8 @@ async function validateExtension(folder: string): Promise<void> {
     }
   }
 
-  const iconThemes = manifest.iconThemes as Array<Record<string, unknown>> | undefined;
-  if (iconThemes && Array.isArray(iconThemes)) {
+  const iconThemes = getContributionArray(manifest, "iconThemes");
+  if (iconThemes.length > 0) {
     for (const iconTheme of iconThemes) {
       if (!iconTheme.id) error(folder, "Icon theme contribution missing 'id'");
       if (!iconTheme.name) error(folder, `Icon theme '${iconTheme.id}' missing 'name'`);

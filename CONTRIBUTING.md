@@ -21,7 +21,7 @@ manifests.json          # Combined manifests (auto-generated, do not edit manual
 scripts/                # Validation and generation scripts
 ```
 
-- `extension.json` defines the extension manifest (category, capabilities, tool references)
+- `extension.json` defines the extension manifest (category, contributions, capabilities, tool references)
 - `tooling.json` (optional) defines pre-built platform-specific binaries distributed as tarballs
 - Not every extension has a `tooling.json`. Extensions without one rely on runtime-installed tools
 
@@ -40,18 +40,25 @@ scripts/                # Validation and generation scripts
   "version": "1.0.0",
   "description": "MyLang language support with LSP",
   "publisher": "Athas",
+  "engines": {
+    "athas": ">=0.7.0"
+  },
   "categories": ["Language"],
-  "languages": [
-    {
-      "id": "mylang",
-      "extensions": [".ml"],
-      "aliases": ["MyLang"]
-    }
-  ]
+  "contributes": {
+    "languages": [
+      {
+        "id": "mylang",
+        "extensions": [".ml"],
+        "filenames": ["MyLangfile"],
+        "filenamePatterns": ["*.mylang.json"],
+        "aliases": ["MyLang"]
+      }
+    ]
+  }
 }
 ```
 
-3. Add capability entries in `capabilities` only for tooling provided by the extension (`lsp`, `formatter`, `linter`, snippets/commands as needed).
+3. Add capability entries in `capabilities` only for tooling provided by the extension (`lsp`, `formatter`, `linter`, grammar assets as needed). Snippets, commands, themes, icon themes, agents, database providers, and keybindings should be declared under `contributes`.
 
 4. Regenerate generated files:
    ```bash
@@ -74,6 +81,38 @@ scripts/                # Validation and generation scripts
 | `name` | string | Short name |
 | `version` | string | Semver version |
 | `categories` | string[] | Extension categories (`Language`, `Theme`, `Snippets`, `Keymaps`, etc.) |
+
+### Contributions
+
+New manifests should prefer the declarative `contributes` model:
+
+```json
+"contributes": {
+  "languages": [],
+  "snippets": [],
+  "themes": [],
+  "iconThemes": [],
+  "databaseProviders": [],
+  "agents": [],
+  "commands": [],
+  "keybindings": []
+}
+```
+
+Top-level arrays such as `languages`, `themes`, `iconThemes`, `agents`, and `databaseProviders`
+are still supported for existing manifests. Validation, catalog generation, theme/icon packaging,
+and database sidecar packaging read both forms.
+
+Language contributions can match by file extension, exact filename, or filename pattern:
+
+```json
+{
+  "id": "jsonc",
+  "extensions": [".jsonc"],
+  "filenames": ["tsconfig.json", "jsconfig.json"],
+  "filenamePatterns": ["tsconfig.*.json", "jsconfig.*.json"]
+}
+```
 
 ### Categories
 
@@ -101,7 +140,7 @@ scripts/                # Validation and generation scripts
 
 Use `packages` for runtime-managed companion packages that must be installed beside the primary package, such as TypeScript SDK packages required by JavaScript-based language servers.
 
-Supported runtimes: `bun`, `node`, `python`, `go`, `rust`, `ruby`, `binary`
+Supported runtimes: `bun`, `node`, `python`, `go`, `rust`, `binary`
 
 #### Formatter
 

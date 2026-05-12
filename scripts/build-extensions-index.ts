@@ -11,7 +11,7 @@ type ExternalLanguageManifest = {
   categories?: string[];
   languages?: Array<{
     id: string;
-    extensions: string[];
+    extensions?: string[];
   }>;
   databaseProviders?: Array<{
     id: string;
@@ -25,6 +25,24 @@ type ExternalLanguageManifest = {
   iconThemes?: Array<{
     id: string;
   }>;
+  contributes?: {
+    languages?: Array<{
+      id: string;
+      extensions?: string[];
+    }>;
+    databaseProviders?: Array<{
+      id: string;
+    }>;
+    agents?: Array<{
+      id: string;
+    }>;
+    themes?: Array<{
+      id: string;
+    }>;
+    iconThemes?: Array<{
+      id: string;
+    }>;
+  };
   installation?: {
     size?: number;
     platformArch?: Record<string, { size?: number }>;
@@ -106,6 +124,16 @@ function resolveInstallSize(manifest: ExternalLanguageManifest): number | undefi
   return typeof size === "number" && size > 0 ? size : undefined;
 }
 
+function getManifestContributions<K extends keyof NonNullable<ExternalLanguageManifest["contributes"]>>(
+  manifest: ExternalLanguageManifest,
+  key: K,
+): NonNullable<ExternalLanguageManifest["contributes"]>[K] {
+  return [
+    ...(((manifest as Record<string, unknown>)[key] as unknown[]) || []),
+    ...((manifest.contributes?.[key] as unknown[]) || []),
+  ] as NonNullable<ExternalLanguageManifest["contributes"]>[K];
+}
+
 function withTrailingNewline(json: unknown): string {
   return `${JSON.stringify(json, null, 2)}\n`;
 }
@@ -146,11 +174,11 @@ async function buildCatalog() {
       throw new Error(`Missing id in ${manifestPath}`);
     }
 
-    const languages = manifest.languages ?? [];
-    const databaseProviders = manifest.databaseProviders ?? [];
-    const agents = manifest.agents ?? [];
-    const themes = manifest.themes ?? [];
-    const iconThemes = manifest.iconThemes ?? [];
+    const languages = getManifestContributions(manifest, "languages") ?? [];
+    const databaseProviders = getManifestContributions(manifest, "databaseProviders") ?? [];
+    const agents = getManifestContributions(manifest, "agents") ?? [];
+    const themes = getManifestContributions(manifest, "themes") ?? [];
+    const iconThemes = getManifestContributions(manifest, "iconThemes") ?? [];
     if (
       languages.length === 0 &&
       databaseProviders.length === 0 &&
